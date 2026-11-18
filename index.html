@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Suhana Firoj Attar — Architecture Student Portfolio</title>
-<meta name="description" content="Portfolio of Suhana Firoj Attar, 2nd year Diploma in Architecture student at Deccan Institute of Technology, Kolhapur. Restaurant interior design drawings and renders.">
+<title>Suhana Firoj Attar — Interior Design Portfolio</title>
+<meta name="description" content="Portfolio of Suhana Firoj Attar, 2nd year Diploma in Interior Design student at Deccan Institute of Technology, Kolhapur.">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&display=swap" rel="stylesheet">
 <style>
@@ -76,12 +76,21 @@ footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:poin
 #lb .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 20px calc(14px + env(safe-area-inset-bottom,0px));color:#e9e5db;font-size:14px}#lb button{background:none;border:1px solid #e9e5db;color:#e9e5db;padding:8px 16px;font:inherit;cursor:pointer}
 .cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:36px clamp(16px,2.5vw,36px)}.cg h3{font:500 15px var(--sans);color:var(--mute);letter-spacing:0;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:10px}.cg p,.cg ul{margin:0;padding:0;list-style:none;font-size:16px;line-height:1.55}.cg li{padding:3px 0}
 .cr figcaption b{color:var(--ink);font-weight:500}
+.gallery-title{grid-column:1/13;margin:clamp(72px,9vw,120px) 0 0;border-bottom:1px solid var(--ink);padding-bottom:14px;font:400 clamp(30px,3.6vw,52px)/1 var(--serif)}
+.media{display:grid;grid-column:1/13;grid-template-columns:repeat(12,minmax(0,1fr));gap:clamp(24px,4vw,56px) clamp(12px,2vw,28px)}
+.media figure{grid-column:span 12;min-width:0}
+.media .s7{grid-column:span 7}.media .s5{grid-column:span 5}.media .s6{grid-column:span 6}
+.media .sheet{cursor:zoom-in}
+.media .sheet img{width:100%;height:auto;object-fit:contain}
+#lb.drawing .st{display:block;padding:56px 8px 8px}
+#lb.drawing img{width:100%;max-width:none;max-height:none;height:auto;cursor:zoom-in}
+#lb.drawing.z img{width:200%}
 @media(max-width:820px){.nav ul{display:none;position:fixed;top:calc(64px + env(safe-area-inset-top,0px));left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px var(--pad) 20px;border-bottom:1px solid var(--line)}.nav ul.open{display:flex}.nav li a{display:block;padding:14px 0;font-size:22px}.burger{display:block}
 .hero h1{grid-column:1/13;font-size:clamp(52px,16vw,120px)}.fig{grid-column:2/12;grid-row:2;margin:36px 0 0}.hero .intro{grid-column:1/13;grid-row:3;margin-top:40px}
 .about .pic{grid-column:1/10;margin-bottom:32px}.about .txt{grid-column:1/13}
 .pj h2,.pj .facts,.pj .ov,.pj .sc,.pj .w2,.pj .w3{grid-column:1/13}.pj .facts{margin-top:32px}.pj .w1{aspect-ratio:4/3}.pj .w3{aspect-ratio:4/3;margin-top:0}
 .skills .row{grid-template-columns:1fr}.edu h2,.edu .ed{grid-column:1/13}.edu .ed{margin-top:32px}.contact .cp{opacity:.3}
-.d h1,.d .lead,.d .meta,.p{grid-column:1/13}.s7,.s5,.s6{grid-column:span 12}#lb .st{padding:56px 8px 8px}}
+.d h1,.d .lead,.d .meta,.p{grid-column:1/13}.s7,.s5,.s6,.media .s7,.media .s5,.media .s6{grid-column:span 12}#lb .st{padding:56px 8px 8px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}.rv{clip-path:none}.hero h1 i{transform:none}}
 </style></head><body>
 <header class="nav"><b>Suhana Firoj Attar</b>
@@ -91,27 +100,43 @@ footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:poin
 <section id="home" class="hero grid">
 <h1><span><i>Suhana</i></span><span><i>Firoj Attar</i></span></h1>
 <div class="fig"><img data-k="me" alt="Portrait of Suhana Firoj Attar" id="par"></div>
-<div class="intro"><small>Architecture student · Diploma in Architecture<br>Deccan Institute of Technology, Kolhapur</small>
-<p>I study how space is organised, lit and finished. My work is drawn in AutoCAD and modelled in SketchUp, from plans and ceilings to rendered interiors.</p>
+<div class="intro"><small>Interior Design student<br>Deccan Institute of Technology, Kolhapur</small>
 <a class="cta" href="#works">Explore my work</a></div>
-<div class="scroll"><u></u>Scroll</div></section>
+</section>
 
 <section id="about" class="about"><div class="grid">
 <div class="pic rv"><svg viewBox="0 0 400 533" role="img" aria-label="Drafting still life: set square, scale ruler, pencil and a dimension line"><defs><pattern id="gr" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke-width=".4" stroke="#c9c6bd"/></pattern><pattern id="tk" width="10" height="14" patternUnits="userSpaceOnUse"><path d="M0 0V8" stroke-width=".8"/></pattern></defs><rect width="400" height="533" fill="url(#gr)" stroke="none"/><path class="f" d="M50 400L300 400L50 120Z"/><path d="M85 372L240 372L85 200Z"/><path d="M50 380A20 20 0 0 0 70 400"/><text x="78" y="392">90°</text><text x="215" y="390">45°</text><g transform="rotate(-14 200 470)"><rect class="f" x="40" y="448" width="330" height="34"/><rect x="40" y="448" width="330" height="14" fill="url(#tk)"/><text x="46" y="477">0</text><text x="342" y="477">1:100</text></g><g transform="rotate(-38 270 250)"><path class="f" d="M120 244H330L352 251L330 258H120Z"/><path d="M330 244L352 251L330 258"/><path class="a" d="M342 249.5L352 251L342 252.5"/><path d="M120 244V258"/></g><path d="M40 70H360M40 62V78M360 62V78"/><path class="a" d="M40 70L52 66V74ZM360 70L348 66V74Z"/><text x="140" y="58">16.30 m × 11.40 m</text></svg></div>
 <div class="txt"><h2>About</h2>
-<p class="big">Learning to read a room: its plan, its section, its materials and its light.</p>
-<p>I am a second-year Diploma in Architecture student. My coursework moves between technical drawing and spatial design, and I enjoy the point where a flat plan becomes a space you can imagine walking through.</p>
-<dl class="k"><dt>Name</dt><dd>Suhana Firoj Attar</dd><dt>Education</dt><dd>2nd Year Diploma in Architecture</dd><dt>Institute</dt><dd>Deccan Institute of Technology, Kolhapur</dd></dl></div></div></section>
+<p class="big">Learning to read a room through its plan, materials and light.</p>
+<dl class="k"><dt>Name</dt><dd>Suhana Firoj Attar</dd><dt>Education</dt><dd>2nd Year Diploma in Interior Design</dd><dt>Institute</dt><dd>Deccan Institute of Technology, Kolhapur</dd></dl><!-- TODO: Confirm institute name; drawing title blocks say Deccan College of Interior Design. -->
+</div></div></section>
 
 <section id="works" class="works dk"><div class="pj">
 <h2>Mughal-Inspired Restaurant</h2>
 <div class="facts"><dl><dt>Project type</dt><dd>Thematic Restaurant</dd><dt>Project area</dt><dd>5000 sq. ft.</dd></dl></div>
-<p class="ov">Designed a Mughal-inspired restaurant blending traditional royal heritage with contemporary interior elements. The design focuses on creating a luxurious dining experience through intricate architectural details, elegant materials, warm lighting, and a rich colour palette.</p>
 <div class="sc"><h3>Scope of work</h3><ul><li>Concept development and space planning</li><li>Furniture layout and zoning</li><li>Material and colour selection</li><li>Ceiling and lighting design</li><li>Kitchen planning</li><li>Working drawings and 3D visualisation</li></ul></div>
-<button class="tile w1 rv" data-open aria-label="Open project: Mughal-Inspired Restaurant"><img data-k="r8" alt="Rendered bar counter with arched back shelves and brass pendant lanterns"></button>
-<button class="tile w2 rv" data-open aria-label="Open project"><img data-k="r2" alt="Rendered evening dining hall with arched windows and floral wall panels"></button>
-<button class="tile w3 rv" data-open aria-label="Open project"><img data-k="r5" alt="Rendered entrance with carved columns and arches"></button>
-<div style="grid-column:1/13"><a class="open-p" href="#restaurant-interior" data-open>Open full project: renders and drawings</a></div>
+<h3 class="gallery-title">3D views</h3>
+<div class="media">
+<figure class="s12"><button class="sheet" data-lb="r1" aria-label="Enlarge main dining with fountain"><img data-k="r1" alt="Main dining with fountain"></button><figcaption>Main dining with fountain</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r2" aria-label="Enlarge dining hall, evening"><img data-k="r2" alt="Dining hall, evening"></button><figcaption>Dining hall, evening</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r3" aria-label="Enlarge jali booth seating"><img data-k="r3" alt="Jali booth seating"></button><figcaption>Jali booth seating</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r4" aria-label="Enlarge reception waiting"><img data-k="r4" alt="Reception waiting"></button><figcaption>Reception waiting</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r5" aria-label="Enlarge entrance facade"><img data-k="r5" alt="Entrance facade"></button><figcaption>Entrance facade</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="r6" aria-label="Enlarge dining hall, day"><img data-k="r6" alt="Dining hall, day"></button><figcaption>Dining hall, day</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r7" aria-label="Enlarge bar window seating"><img data-k="r7" alt="Bar window seating"></button><figcaption>Bar window seating</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r8" aria-label="Enlarge bar counter"><img data-k="r8" alt="Bar counter"></button><figcaption>Bar counter</figcaption></figure>
+</div>
+<h3 class="gallery-title">Plans and layouts</h3>
+<div class="media">
+<figure class="s7"><button class="sheet" data-lb="d_pres" aria-label="Enlarge presentation plan"><img data-k="d_pres" alt="Presentation plan"></button><figcaption>Presentation plan</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="d_spec" aria-label="Enlarge measurement and specification plan"><img data-k="d_spec" alt="Measurement and specification plan"></button><figcaption>Measurement and specification plan</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_ceil" aria-label="Enlarge ceiling layout"><img data-k="d_ceil" alt="Ceiling layout"></button><figcaption>Ceiling layout</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_floor" aria-label="Enlarge flooring layout"><img data-k="d_floor" alt="Flooring layout"></button><figcaption>Flooring layout</figcaption></figure>
+<figure class="s6"><button class="sheet" data-lb="d_s1" aria-label="Enlarge furniture sections C-C and D-D"><img data-k="d_s1" alt="Furniture sections C-C and D-D"></button><figcaption>Furniture sections C-C and D-D</figcaption></figure>
+<figure class="s6"><button class="sheet" data-lb="d_s2" aria-label="Enlarge furniture sections A-A and B-B"><img data-k="d_s2" alt="Furniture sections A-A and B-B"></button><figcaption>Furniture sections A-A and B-B</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_furn" aria-label="Enlarge reception counter furniture detail"><img data-k="d_furn" alt="Reception counter furniture detail"></button><figcaption>Reception counter furniture detail</figcaption></figure>
+</div>
+<div style="grid-column:1/13"><a class="open-p" href="#restaurant-interior" data-open>Open full project</a></div>
 </div></section>
 
 <section id="skills" class="skills"><div class="grid"><h2 class="h2" style="grid-column:1/13">Software skills</h2>
@@ -121,55 +146,44 @@ footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:poin
 <svg viewBox="0 0 200 110" aria-hidden="true"><path d="M20 90L20 40L100 15L180 40L180 90L100 105Z M20 40L100 65L180 40 M100 65V105"/></svg></div></div></div></section>
 
 <section id="education" class="edu"><div class="grid"><h2 class="h2">Education</h2>
-<div class="ed"><h3>Deccan Institute of Technology, Kolhapur</h3><p>2nd Year Diploma in Architecture</p></div></div></section>
+<div class="ed"><h3>Deccan Institute of Technology, Kolhapur</h3><p>2nd Year Diploma in Interior Design</p></div></div></section>
 
 <section id="contact" class="contact"><svg class="cp" viewBox="0 0 200 230" aria-hidden="true"><circle cx="100" cy="12" r="8"/><path d="M100 20V34M100 34L52 210L50 218L54 210M100 34L148 210L150 222L146 210"/><circle cx="100" cy="34" r="5"/><path d="M62 168H138"/><path d="M52 216A58 18 0 0 0 148 216" stroke-dasharray="4 4"/></svg><h2>Let’s talk about design.</h2>
 <p>I would be glad to hear from anyone interested in my work, whether to give feedback or to collaborate.</p></section>
 </main>
-<footer><span>Suhana Firoj Attar · Architecture Student</span><span>© 2026 Suhana Firoj Attar</span><button id="top">Back to top</button></footer>
+<footer><span>Suhana Firoj Attar · Interior Design Student</span><span>© 2026 Suhana Firoj Attar</span><button id="top">Back to top</button></footer>
 
 <div id="detail" role="dialog" aria-modal="true" aria-label="Project: Mughal-Inspired Restaurant">
 <div class="dbar"><b>Mughal-Inspired Restaurant</b><button id="close">Close</button></div>
 <article class="d">
 <div class="grid"><h1>Mughal-Inspired Restaurant</h1>
-<p class="lead">A thematic restaurant that blends traditional royal heritage with contemporary interior elements, built around intricate architectural details, elegant materials, warm lighting and a rich colour palette.</p>
-<div class="meta"><dl><dt>Concept name</dt><dd>The Mughal Era</dd><dt>Project type</dt><dd>Thematic Restaurant</dd><dt>Project area</dt><dd>5000 sq. ft.</dd><dt>Main dining</dt><dd>16.30 × 11.40 m</dd><dt>Tools</dt><dd>AutoCAD, SketchUp</dd><dt>Sheets</dt><dd>Suhana Attar, DID 2nd Year, IDS</dd></dl></div></div>
+<div class="meta"><dl><dt>Project type</dt><dd>Thematic Restaurant</dd><dt>Project area</dt><dd>5000 sq. ft.</dd></dl></div></div>
 
-<div class="ch"><h2>Scope of work</h2><p>Concept to working drawings and visualisation.</p></div>
+<div class="ch"><h2>Scope of work</h2></div>
 <div class="g"><ul class="s6" style="list-style:none;margin:0;padding:0"><li style="padding:12px 0;border-top:1px solid var(--line)">Concept development and space planning</li><li style="padding:12px 0;border-top:1px solid var(--line)">Furniture layout and zoning</li><li style="padding:12px 0;border-top:1px solid var(--line)">Material and colour selection</li></ul><ul class="s6" style="list-style:none;margin:0;padding:0"><li style="padding:12px 0;border-top:1px solid var(--line)">Ceiling and lighting design</li><li style="padding:12px 0;border-top:1px solid var(--line)">Kitchen planning</li><li style="padding:12px 0;border-top:1px solid var(--line)">Working drawings and 3D visualisation</li></ul></div>
-<div class="ch"><h2>Design language</h2></div>
-<div class="grid"><p class="p">The sheets specify a layered material palette: CNC laser-cut metal jali partitions in antique gold, a ceiling of 0.30 × 0.30 m brass-finish aluminium panels, arched hardwood windows, Mughal arch wall panels with floral wallpaper, tufted velvet seating and brass-legged chairs, on cream marble-look flooring with Persian rugs. A water feature with tiered basins sits in the centre of the main dining hall.</p></div>
-
-<div class="ch"><h2>Concept board: The Mughal Era</h2><p>A royal dining experience. Select the board to enlarge.</p></div>
-<div class="g"><figure class="s12"><button class="sheet" data-lb="board"><img data-k="board" alt="Concept and material board titled The Mughal Era, with concept, materials, furniture, lighting, wall and ceiling, decorative elements and ambiance"></button><figcaption>Concept and material board</figcaption></figure></div>
-<div class="cg" style="margin-top:56px">
-<div><h3>Concept</h3><p>Inspired by the grandeur of Mughal palaces, this restaurant blends royal elegance with modern comfort. Intricate arches, rich textures, warm lighting and luxurious materials create an unforgettable dining experience.</p></div>
-<div><h3>Materials and textures</h3><ul><li>White marble</li><li>Sandstone finish</li><li>Dark wood, teak / walnut</li><li>Brass and antique gold</li><li>Velvet upholstery</li></ul></div>
-<div><h3>Furniture</h3><ul><li>Upholstered dining chairs</li><li>Solid wood tables with marble tops</li><li>Comfortable booth seating</li><li>Carved wooden details</li></ul></div>
-<div><h3>Lighting</h3><ul><li>Warm ambient lighting</li><li>Brass pendant lamps</li><li>Lantern style pendants</li><li>Wall sconces and cove lights</li></ul></div>
-<div><h3>Wall and ceiling</h3><ul><li>Mughal arches and jaali details</li><li>Floral motifs and carved panels</li><li>Marble / stone cladding</li><li>Domed or vaulted ceilings</li><li>Decorative mouldings</li></ul></div>
-<div><h3>Decorative elements</h3><ul><li>Mughal arches and jaali patterns</li><li>Persian style rugs</li><li>Floral motifs and calligraphy artwork</li><li>Brass urns, planters and fountains</li></ul></div>
-<div><h3>Ambiance</h3><ul><li>Royal, warm and welcoming</li><li>Rich textures and layered lighting</li><li>Blend of tradition and modern luxury</li><li>Perfect for a memorable dining experience</li></ul></div></div>
-<div class="ch"><h2>From concept to render</h2><p>The board’s ideas, as they appear in the 3D views.</p></div>
-<div class="g cr">
-<figure class="s12"><button class="sheet" data-lb="r5"><img data-k="r5" alt="Rendered entrance with carved columns, arches and steps"></button><figcaption><b>Entrance.</b> Mughal arches and carved panels, as drawn in the render.</figcaption></figure>
-<figure class="s7"><button class="sheet" data-lb="r1"><img data-k="r1" alt="Main dining hall with central fountain and bar"></button><figcaption><b>Fountains and jaali.</b> Main dining hall with a central water feature and metal jaali screens.</figcaption></figure>
-<figure class="s5"><button class="sheet" data-lb="r8"><img data-k="r8" alt="Bar counter with lantern pendants" style="aspect-ratio:1/1;object-fit:cover;object-position:50% 40%"></button><figcaption><b>Lantern pendants.</b> Brass lanterns over the bar, with warm cove light below the counter.</figcaption></figure></div>
-<div class="ch"><h2>More rendered views</h2><p>Select any image to enlarge.</p></div>
-<div class="g"><figure class="s12"><button class="sheet" data-lb="r2"><img data-k="r2" alt="Evening dining hall with arched windows"></button><figcaption>Dining hall, evening</figcaption></figure><figure class="s7"><button class="sheet" data-lb="r3"><img data-k="r3" alt="Dining hall with jali partitions"></button><figcaption>Jali partitions and booth seating</figcaption></figure><figure class="s5"><button class="sheet" data-lb="r4"><img data-k="r4" alt="Reception counter and waiting area" style="aspect-ratio:1/1;object-fit:cover"></button><figcaption>Reception and waiting</figcaption></figure><figure class="s6"><button class="sheet" data-lb="r6"><img data-k="r6" alt="Dining hall, day view"></button><figcaption>Dining hall, day view</figcaption></figure><figure class="s6"><button class="sheet" data-lb="r7"><img data-k="r7" alt="Bar and window seating at night"></button><figcaption>Bar and window seating, evening</figcaption></figure></div>
-
-<div class="ch"><h2>Plans</h2><p>Room sizes, kitchen lines, service counters and furniture dimensions.</p></div>
-<div class="g"><figure class="s6"><button class="sheet" data-lb="d_pres"><img data-k="d_pres" alt="Presentation plan"></button><figcaption>Presentation plan</figcaption></figure>
-<figure class="s6"><button class="sheet" data-lb="d_spec"><img data-k="d_spec" alt="Measurement and specification plan"></button><figcaption>Measurement and specification plan</figcaption></figure></div>
-
-<div class="ch"><h2>Ceiling and flooring</h2><p>Light fittings, cassette air conditioning and finishes, tile by tile.</p></div>
-<div class="g"><figure class="s12"><button class="sheet" data-lb="d_ceil"><img data-k="d_ceil" alt="Ceiling layout"></button><figcaption>Ceiling layout</figcaption></figure>
-<figure class="s12"><button class="sheet" data-lb="d_floor"><img data-k="d_floor" alt="Flooring layout"></button><figcaption>Flooring layout</figcaption></figure></div>
-
-<div class="ch"><h2>Sections and furniture detail</h2></div>
-<div class="g"><figure class="s6"><button class="sheet" data-lb="d_s1"><img data-k="d_s1" alt="Furniture sections C-C and D-D"></button><figcaption>Furniture sections, C-C and D-D</figcaption></figure>
-<figure class="s6"><button class="sheet" data-lb="d_s2"><img data-k="d_s2" alt="Furniture sections A-A and B-B"></button><figcaption>Furniture sections, A-A and B-B</figcaption></figure>
-<figure class="s12"><button class="sheet" data-lb="d_furn"><img data-k="d_furn" alt="Reception counter furniture detail"></button><figcaption>Furniture detail: fluted reception counter with 25 mm solid surface top</figcaption></figure></div>
+<div class="ch"><h2>Concept board</h2></div>
+<div class="g"><figure class="s12"><button class="sheet" data-lb="board"><img data-k="board" alt="The Mughal Era concept board"></button></figure></div>
+<h2 class="gallery-title">3D views</h2>
+<div class="media">
+<figure class="s12"><button class="sheet" data-lb="r1"><img data-k="r1" alt="Main dining with fountain"></button><figcaption>Main dining with fountain</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r2"><img data-k="r2" alt="Dining hall, evening"></button><figcaption>Dining hall, evening</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r3"><img data-k="r3" alt="Jali booth seating"></button><figcaption>Jali booth seating</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r4"><img data-k="r4" alt="Reception waiting"></button><figcaption>Reception waiting</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r5"><img data-k="r5" alt="Entrance facade"></button><figcaption>Entrance facade</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="r6"><img data-k="r6" alt="Dining hall, day"></button><figcaption>Dining hall, day</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r7"><img data-k="r7" alt="Bar window seating"></button><figcaption>Bar window seating</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r8"><img data-k="r8" alt="Bar counter"></button><figcaption>Bar counter</figcaption></figure>
+</div>
+<h2 class="gallery-title">Plans and layouts</h2>
+<div class="media">
+<figure class="s7"><button class="sheet" data-lb="d_pres"><img data-k="d_pres" alt="Presentation plan"></button><figcaption>Presentation plan</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="d_spec"><img data-k="d_spec" alt="Measurement and specification plan"></button><figcaption>Measurement and specification plan</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_ceil"><img data-k="d_ceil" alt="Ceiling layout"></button><figcaption>Ceiling layout</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_floor"><img data-k="d_floor" alt="Flooring layout"></button><figcaption>Flooring layout</figcaption></figure>
+<figure class="s6"><button class="sheet" data-lb="d_s1"><img data-k="d_s1" alt="Furniture sections C-C and D-D"></button><figcaption>Furniture sections C-C and D-D</figcaption></figure>
+<figure class="s6"><button class="sheet" data-lb="d_s2"><img data-k="d_s2" alt="Furniture sections A-A and B-B"></button><figcaption>Furniture sections A-A and B-B</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_furn"><img data-k="d_furn" alt="Reception counter furniture detail"></button><figcaption>Reception counter furniture detail</figcaption></figure>
+</div>
 </article></div>
 
 <div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><div class="st"><img id="lbi" alt=""></div>
@@ -198,8 +212,8 @@ $('#close').onclick=()=>{history.pushState(null,'',location.pathname+location.se
 addEventListener('hashchange',view);view();
 // lightbox
 const lb=$('#lb'),lbi=$('#lbi'),keys=$$('#detail [data-lb]').map(b=>b.dataset.lb);let ci=0;
-function show(i){ci=(i+keys.length)%keys.length;lbi.src=IMG[keys[ci]];lbi.alt=$$('#detail [data-lb]')[ci].querySelector('img').alt;$('#lc').textContent=(ci+1)+' / '+keys.length;lb.classList.remove('z')}
-$$('#detail [data-lb]').forEach((b,i)=>b.onclick=()=>{show(i);lb.classList.add('open');$('#lx').focus()});
+function show(i){ci=(i+keys.length)%keys.length;lbi.src=IMG[keys[ci]];lbi.alt=$$('#detail [data-lb]')[ci].querySelector('img').alt;$('#lc').textContent=(ci+1)+' / '+keys.length;lb.classList.remove('z');lb.classList.toggle('drawing',keys[ci].startsWith('d_'))}
+$$('[data-lb]').forEach(b=>b.onclick=()=>{const i=keys.indexOf(b.dataset.lb);if(i<0)return;show(i);lb.classList.add('open');$('#lx').focus()});
 $('#lp').onclick=()=>show(ci-1);$('#ln').onclick=()=>show(ci+1);$('#lx').onclick=()=>lb.classList.remove('open');
 lbi.onclick=()=>lb.classList.toggle('z');
 addEventListener('keydown',e=>{if(lb.classList.contains('open')){if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowRight')show(ci+1);if(e.key==='ArrowLeft')show(ci-1)}else if(e.key==='Escape'&&det.classList.contains('open'))$('#close').click()});
