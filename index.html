@@ -27,15 +27,14 @@ h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;line-height:1;letter-
 .hero h1 span:nth-child(2) i{animation-delay:.14s;padding-left:.5em}
 @keyframes up{to{transform:none}}
 .fig{grid-column:7/12;grid-row:1/3;align-self:center;overflow:hidden;background:var(--conc);aspect-ratio:3/4.1;border-radius:999px 999px 0 0;outline:1px solid var(--ink);outline-offset:12px;margin:12px 12px 0 0}
-.fig img{width:100%;height:110%;object-fit:cover;object-position:50% 15%}
+.fig svg{display:block;width:100%;height:100%;stroke:var(--ink);stroke-width:1.2;fill:none}
 .hero .intro{grid-column:1/7;grid-row:2;max-width:44ch}
 .hero .intro small{display:block;font-size:15px;color:var(--mute);margin-bottom:16px;line-height:1.5}
 .hero .intro p{margin:0 0 30px;font-family:var(--serif);font-weight:300;font-size:clamp(21px,2vw,27px);line-height:1.35}
 .cta{display:inline-block;border:1px solid var(--ink);padding:15px 30px;text-decoration:none;font-weight:500;transition:.35s}.cta:hover{background:var(--ink);color:var(--bg)}
 .ruler{height:30px;margin:0 var(--pad);background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 10px) bottom/100% 6px no-repeat,repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 50px) bottom/100% 14px no-repeat;border-bottom:1px solid var(--ink)}
-.about{background:var(--conc)}.about .pic{grid-column:1/5;aspect-ratio:3/4;background:var(--bg);border:1px solid var(--ink);overflow:hidden}
-.about .pic svg{width:100%;height:100%;display:block;stroke:var(--ink);fill:none;stroke-width:1.1}.about .pic .f{fill:var(--bg)}.about .pic .a{stroke:var(--acc);stroke-width:1.6}.about .pic text{fill:var(--ink);stroke:none;font:500 11px var(--sans)}
-.about .txt{grid-column:6/12;align-self:center}.about .big{font:300 clamp(26px,2.8vw,40px)/1.2 var(--serif);margin:28px 0}.about p{max-width:52ch}
+.about{background:var(--conc)}
+.about .txt{grid-column:2/12;align-self:center}.about .big{font:300 clamp(26px,2.8vw,40px)/1.2 var(--serif);margin:28px 0}.about p{max-width:52ch}
 dl.k{display:grid;grid-template-columns:max-content 1fr;gap:8px 28px;margin:36px 0 0;border-top:1px solid var(--ink);padding-top:18px;font-size:15px}dl.k dt{color:var(--mute)}dl.k dd{margin:0}
 .works{background:var(--bg);color:var(--ink)}
 .pj{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,2vw,28px)}
@@ -87,7 +86,7 @@ footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:poin
 #lb.drawing.z img{width:200%}
 @media(max-width:820px){.nav ul{display:none;position:fixed;top:calc(64px + env(safe-area-inset-top,0px));left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px var(--pad) 20px;border-bottom:1px solid var(--line)}.nav ul.open{display:flex}.nav li a{display:block;padding:14px 0;font-size:22px}.burger{display:block}
 .hero h1{grid-column:1/13;font-size:clamp(52px,16vw,120px)}.fig{grid-column:2/12;grid-row:2;margin:36px 0 0}.hero .intro{grid-column:1/13;grid-row:3;margin-top:40px}
-.about .pic{grid-column:1/10;margin-bottom:32px}.about .txt{grid-column:1/13}
+.about .txt{grid-column:1/13}
 .pj h2,.pj .facts,.pj .ov,.pj .sc,.pj .w2,.pj .w3{grid-column:1/13}.pj .facts{margin-top:32px}.pj .w1{aspect-ratio:4/3}.pj .w3{aspect-ratio:4/3;margin-top:0}
 .skills .row{grid-template-columns:1fr}.edu h2,.edu .ed{grid-column:1/13}.edu .ed{margin-top:32px}.contact .cp{opacity:.3}
 .d h1,.d .lead,.d .meta,.p{grid-column:1/13}.s7,.s5,.s6,.media .s7,.media .s5,.media .s6{grid-column:span 12}#lb .st{padding:56px 8px 8px}}
@@ -95,18 +94,36 @@ footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:poin
 </style></head><body>
 <header class="nav"><b>Suhana Firoj Attar</b>
 <button class="burger" aria-expanded="false" aria-controls="menu">Menu</button>
-<nav aria-label="Primary"><ul id="menu"><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#works">Works</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></nav></header>
+<nav aria-label="Primary"><ul id="menu"><li><a href="#home">Home</a></li><li><a href="#about">About me</a></li><li><a href="#works">Works</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></nav></header>
 <main>
 <section id="home" class="hero grid">
 <h1><span><i>Suhana</i></span><span><i>Firoj Attar</i></span></h1>
-<div class="fig"><img data-k="me" alt="Portrait of Suhana Firoj Attar" id="par"></div>
+<div class="fig"><svg id="par" viewBox="0 0 400 540" role="img" aria-label="Architectural figure study of a woman beside a drawing board" xmlns="http://www.w3.org/2000/svg">
+<defs><pattern id="fig-grid" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke="var(--line)" stroke-width=".45"/></pattern></defs>
+<rect width="400" height="540" fill="var(--conc)" stroke="none"/>
+<rect width="400" height="540" fill="url(#fig-grid)" stroke="none"/>
+<g stroke="var(--mute)" stroke-width=".8" opacity=".8"><path d="M52 80V468M46 80H58M46 468H58M60 468H362"/><path d="M48 120H56M48 160H56M48 200H56M48 240H56M48 280H56M48 320H56M48 360H56M48 400H56M48 440H56"/></g>
+<g stroke="var(--acc)" stroke-width="1.2"><path d="M278 174H362V425H278Z"/><path d="M289 195H350V405H289Z"/><path d="M289 254H350M289 316H350M289 375H350"/><path d="M300 241L318 218L337 241V254H300Z M300 303L319 278L339 303M300 365L318 338L339 365"/></g>
+<g stroke="var(--ink)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+<path d="M177 134C160 126 163 99 180 89C195 80 216 89 219 108C221 124 211 140 196 143"/>
+<path d="M166 111C164 87 180 76 199 79C216 81 225 95 222 113L214 105L210 92C199 102 185 106 166 106Z"/>
+<path d="M174 139L174 157M199 142L201 159"/>
+<path d="M173 158C159 161 150 169 147 183L137 225L155 231L166 201L165 269L207 269L204 198L217 228L232 221L214 177C210 166 202 160 198 158Z" fill="var(--bg)"/>
+<path d="M146 182L131 222L142 227M213 180L235 204L273 218L270 230L231 218L215 204"/>
+<path d="M166 266L165 340L160 427L178 427L190 344L199 427L218 427L211 338L207 266Z" fill="var(--conc)"/>
+<path d="M159 427L157 447L183 447L179 427M199 427L198 447L224 447L217 427"/>
+<path d="M157 448L151 455L184 455L183 447M198 448L196 455L226 455L224 447"/>
+<path d="M165 270H208M166 337H211M160 427H178M199 427H218"/>
+<path d="M180 117C184 115 187 115 190 117M203 117C206 116 208 117 210 119M190 129L195 131"/>
+</g>
+<path d="M138 230L124 249M273 230L278 240" stroke="var(--acc)" stroke-width="1.1"/>
+</svg></div>
 <div class="intro"><small>Interior Design student<br>Deccan Institute of Technology, Kolhapur</small>
 <a class="cta" href="#works">Explore my work</a></div>
 </section>
 
 <section id="about" class="about"><div class="grid">
-<div class="pic rv"><svg viewBox="0 0 400 533" role="img" aria-label="Drafting still life: set square, scale ruler, pencil and a dimension line"><defs><pattern id="gr" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke-width=".4" stroke="#c9c6bd"/></pattern><pattern id="tk" width="10" height="14" patternUnits="userSpaceOnUse"><path d="M0 0V8" stroke-width=".8"/></pattern></defs><rect width="400" height="533" fill="url(#gr)" stroke="none"/><path class="f" d="M50 400L300 400L50 120Z"/><path d="M85 372L240 372L85 200Z"/><path d="M50 380A20 20 0 0 0 70 400"/><text x="78" y="392">90°</text><text x="215" y="390">45°</text><g transform="rotate(-14 200 470)"><rect class="f" x="40" y="448" width="330" height="34"/><rect x="40" y="448" width="330" height="14" fill="url(#tk)"/><text x="46" y="477">0</text><text x="342" y="477">1:100</text></g><g transform="rotate(-38 270 250)"><path class="f" d="M120 244H330L352 251L330 258H120Z"/><path d="M330 244L352 251L330 258"/><path class="a" d="M342 249.5L352 251L342 252.5"/><path d="M120 244V258"/></g><path d="M40 70H360M40 62V78M360 62V78"/><path class="a" d="M40 70L52 66V74ZM360 70L348 66V74Z"/><text x="140" y="58">16.30 m × 11.40 m</text></svg></div>
-<div class="txt"><h2>About</h2>
+<div class="txt"><h2>About me</h2>
 <p class="big">Learning to read a room through its plan, materials and light.</p>
 <dl class="k"><dt>Name</dt><dd>Suhana Firoj Attar</dd><dt>Education</dt><dd>2nd Year Diploma in Interior Design</dd><dt>Institute</dt><dd>Deccan Institute of Technology, Kolhapur</dd></dl><!-- TODO: Confirm institute name; drawing title blocks say Deccan College of Interior Design. -->
 </div></div></section>
@@ -190,7 +207,7 @@ footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:poin
 <div class="bar"><button id="lp">Previous</button><span id="lc"></span><button id="ln">Next</button><button id="lx">Close</button></div></div>
 
 <script>
-const IMG={"r1": "images/render-main-dining-fountain.jpg", "r2": "images/render-dining-hall-evening.jpg", "r3": "images/render-jali-booth-seating.jpg", "r4": "images/render-reception-waiting.jpg", "r5": "images/render-entrance-facade.jpg", "r6": "images/render-dining-hall-day.jpg", "r7": "images/render-bar-window-seating.jpg", "r8": "images/render-bar-counter.jpg", "d_pres": "images/drawing-presentation-plan.jpg", "d_spec": "images/drawing-measurement-specification-plan.jpg", "d_ceil": "images/drawing-ceiling-layout.jpg", "d_floor": "images/drawing-flooring-layout.jpg", "d_s1": "images/drawing-furniture-sections-cc-dd.jpg", "d_s2": "images/drawing-furniture-sections-aa-bb.jpg", "d_furn": "images/drawing-furniture-detail-reception-counter.jpg", "me": "images/portrait-suhana.jpg", "board": "images/concept-board-mughal-era.jpg"};const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const IMG={"r1": "images/render-main-dining-fountain.jpg", "r2": "images/render-dining-hall-evening.jpg", "r3": "images/render-jali-booth-seating.jpg", "r4": "images/render-reception-waiting.jpg", "r5": "images/render-entrance-facade.jpg", "r6": "images/render-dining-hall-day.jpg", "r7": "images/render-bar-window-seating.jpg", "r8": "images/render-bar-counter.jpg", "d_pres": "images/drawing-presentation-plan.jpg", "d_spec": "images/drawing-measurement-specification-plan.jpg", "d_ceil": "images/drawing-ceiling-layout.jpg", "d_floor": "images/drawing-flooring-layout.jpg", "d_s1": "images/drawing-furniture-sections-cc-dd.jpg", "d_s2": "images/drawing-furniture-sections-aa-bb.jpg", "d_furn": "images/drawing-furniture-detail-reception-counter.jpg", "board": "images/concept-board-mughal-era.jpg"};const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target;if(i.dataset.k&&!i.src)i.src=IMG[i.dataset.k];i.classList.add('in');io.unobserve(i)}}),{rootMargin:'300px'});
 $$('img[data-k],.rv').forEach(x=>io.observe(x));
 // load detail images when opened
