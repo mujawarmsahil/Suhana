@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Suhana Firoj Attar — Architecture Student Portfolio</title>
+<meta name="description" content="Portfolio of Suhana Firoj Attar, 2nd year Diploma in Architecture student at Deccan Institute of Technology, Kolhapur. Restaurant interior design drawings and renders.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;1,6..72,300&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3efe7;--ink:#1d1c1a;--mute:#6d6b64;--conc:#e1ded6;--line:#cfccc2;--acc:#6a6d4a;--sans:'Familjen Grotesk',system-ui,sans-serif;--serif:'Newsreader',Georgia,serif;--pad:clamp(20px,5vw,80px);box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+.dk,#detail{--bg:#1b1a18;--ink:#ece7dc;--mute:#a39e92;--line:#3b3935;--acc:#bd9f62}
+*,*::before,*::after{box-sizing:inherit}html{scroll-behavior:smooth;scroll-padding-top:calc(64px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 var(--sans);-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}a{color:inherit}:focus-visible{outline:2px solid var(--acc);outline-offset:3px}
+.nav{position:fixed;top:0;left:0;right:0;z-index:20;height:calc(64px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) var(--pad) 0;display:flex;align-items:center;justify-content:space-between;background:var(--bg);border-bottom:1px solid var(--line)}
+.nav b{font:400 22px var(--serif);letter-spacing:.01em}.nav ul{display:flex;gap:36px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;font-size:15px;color:var(--mute);padding:6px 0;border-bottom:1px solid transparent;transition:.3s}.nav a:hover,.nav a.on{color:var(--ink);border-color:var(--ink)}
+.burger{display:none;background:none;border:0;font:inherit;color:inherit;cursor:pointer;padding:10px 0}
+section{padding:clamp(72px,9vw,120px) var(--pad)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:0 clamp(12px,2vw,28px)}
+h1,h2,h3{font-family:var(--serif);font-weight:300;margin:0;line-height:1;letter-spacing:-.02em}
+.h2{font-size:clamp(42px,6vw,96px)}
+.hero{min-height:min(100svh,800px);padding-top:calc(64px + clamp(40px,6vw,88px));padding-bottom:clamp(40px,5vw,72px);position:relative;align-items:end}
+.hero::before{content:'';position:absolute;inset:64px var(--pad) 0;background:repeating-linear-gradient(90deg,var(--line) 0 1px,transparent 1px calc(100%/12));opacity:.4;pointer-events:none;-webkit-mask:linear-gradient(#000,transparent 80%);mask:linear-gradient(#000,transparent 80%)}
+.hero>*{position:relative}
+.hero h1{grid-column:1/7;grid-row:1;font-size:clamp(56px,8.5vw,150px);align-self:center}
+.hero h1 span{white-space:nowrap;display:block;overflow:hidden;padding-bottom:.08em}.hero h1 i{display:block;font-style:normal;transform:translateY(105%);animation:up 1.2s cubic-bezier(.2,.7,.1,1) forwards}
+.hero h1 span:nth-child(2) i{animation-delay:.14s;padding-left:.5em}
+@keyframes up{to{transform:none}}
+.fig{grid-column:7/12;grid-row:1/3;align-self:center;overflow:hidden;background:var(--conc);aspect-ratio:3/4.1;border-radius:999px 999px 0 0;outline:1px solid var(--ink);outline-offset:12px;margin:12px 12px 0 0}
+.fig img{width:100%;height:110%;object-fit:cover;object-position:50% 15%}
+.hero .intro{grid-column:1/7;grid-row:2;max-width:44ch}
+.hero .intro small{display:block;font-size:15px;color:var(--mute);margin-bottom:16px;line-height:1.5}
+.hero .intro p{margin:0 0 30px;font-family:var(--serif);font-weight:300;font-size:clamp(21px,2vw,27px);line-height:1.35}
+.cta{display:inline-block;border:1px solid var(--ink);padding:15px 30px;text-decoration:none;font-weight:500;transition:.35s}.cta:hover{background:var(--ink);color:var(--bg)}
+.ruler{height:30px;margin:0 var(--pad);background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 10px) bottom/100% 6px no-repeat,repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 50px) bottom/100% 14px no-repeat;border-bottom:1px solid var(--ink)}
+.about{background:var(--conc)}.about .pic{grid-column:1/5;aspect-ratio:3/4;background:var(--bg);border:1px solid var(--ink);overflow:hidden}
+.about .pic svg{width:100%;height:100%;display:block;stroke:var(--ink);fill:none;stroke-width:1.1}.about .pic .f{fill:var(--bg)}.about .pic .a{stroke:var(--acc);stroke-width:1.6}.about .pic text{fill:var(--ink);stroke:none;font:500 11px var(--sans)}
+.about .txt{grid-column:6/12;align-self:center}.about .big{font:300 clamp(26px,2.8vw,40px)/1.2 var(--serif);margin:28px 0}.about p{max-width:52ch}
+dl.k{display:grid;grid-template-columns:max-content 1fr;gap:8px 28px;margin:36px 0 0;border-top:1px solid var(--ink);padding-top:18px;font-size:15px}dl.k dt{color:var(--mute)}dl.k dd{margin:0}
+.works{background:var(--bg);color:var(--ink)}
+.pj{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,2vw,28px)}
+.pj h2{grid-column:1/9;font-size:clamp(46px,8vw,132px)}.pj .facts{grid-column:9/13;align-self:end;font-size:15px}
+.facts dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:8px 24px;border-top:1px solid var(--ink);padding-top:14px}.facts dt{color:var(--mute)}.facts dd{margin:0}
+.pj .ov{grid-column:1/7;font:300 clamp(21px,2.1vw,28px)/1.4 var(--serif);margin:clamp(40px,6vw,80px) 0 0}
+.pj .sc{grid-column:8/13;margin:clamp(40px,6vw,80px) 0 0}.sc h3{font:500 15px var(--sans);color:var(--mute);letter-spacing:0;margin-bottom:12px}
+.sc ul{list-style:none;margin:0;padding:0}.sc li{padding:11px 0;border-top:1px solid var(--line);display:flex;gap:16px}.sc li:last-child{border-bottom:1px solid var(--line)}.sc li::before{content:'';width:14px;height:1px;background:var(--acc);margin-top:.85em;flex:none}
+.pj .w1{grid-column:1/13;aspect-ratio:2.1/1;margin-top:clamp(56px,8vw,110px)}.pj .w2{grid-column:1/8;aspect-ratio:16/10}.pj .w3{grid-column:8/13;aspect-ratio:4/5;margin-top:clamp(40px,8vw,120px)}
+.tile{position:relative;overflow:hidden;background:#000;border:0;padding:0;cursor:pointer;display:block;width:100%}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform 1s cubic-bezier(.2,.7,.1,1)}.tile:hover img{transform:scale(1.035)}
+.tile::after{content:'View project';position:absolute;left:0;bottom:0;background:var(--bg);color:var(--ink);padding:12px 22px;font-size:14px;transform:translateY(100%);transition:transform .5s cubic-bezier(.2,.7,.1,1)}.tile:hover::after,.tile:focus-visible::after{transform:none}
+.open-p{display:inline-block;margin-top:clamp(40px,6vw,72px);border:1px solid var(--ink);padding:15px 30px;text-decoration:none;font-weight:500;transition:.35s}.open-p:hover{background:var(--ink);color:var(--bg)}
+.rv{clip-path:inset(0 0 100% 0);transition:clip-path 1.2s cubic-bezier(.2,.7,.1,1)}.rv.in{clip-path:inset(0)}
+.skills .row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,2vw,28px);margin-top:56px}
+.sk{border-top:1px solid var(--ink);padding-top:22px;min-height:240px;position:relative}.sk h3{font-size:clamp(34px,4.5vw,66px)}.sk p{max-width:34ch;color:var(--mute)}
+.sk svg{position:absolute;right:0;bottom:0;width:44%;height:auto;stroke:var(--ink);fill:none;stroke-width:1;transition:transform .8s cubic-bezier(.2,.7,.1,1)}.sk:hover svg{transform:translateX(-8px)}
+.edu{background:var(--conc)}.edu h2{grid-column:1/5}.edu .ed{grid-column:5/13;border-top:1px solid var(--ink);padding-top:22px}.edu .ed h3{font-size:clamp(30px,4vw,58px)}.edu .ed p{margin:14px 0 0;color:var(--mute)}
+.contact{min-height:75svh;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}.contact h2{font-size:clamp(46px,9vw,150px);position:relative}.contact p{position:relative;max-width:42ch;font:300 clamp(22px,2.4vw,32px)/1.35 var(--serif);margin-top:32px}
+.contact .cp{position:absolute;right:var(--pad);bottom:0;width:clamp(130px,22vw,320px);stroke:var(--ink);fill:none;stroke-width:1.1;opacity:.8}
+footer{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;padding:26px var(--pad);border-top:1px solid var(--line);font-size:14px;color:var(--mute);align-items:center}
+footer button{background:none;border:0;font:inherit;color:var(--ink);cursor:pointer;border-bottom:1px solid var(--ink);padding:4px 0}
+#detail{position:fixed;inset:0;z-index:40;background:var(--bg);color:var(--ink);overflow-y:auto;transform:translateY(100%);visibility:hidden;transition:transform .8s cubic-bezier(.2,.7,.1,1),visibility 0s .8s}
+#detail.open{transform:none;visibility:visible;transition:transform .8s cubic-bezier(.2,.7,.1,1)}
+.dbar{position:sticky;top:0;z-index:2;display:flex;justify-content:space-between;align-items:center;padding:calc(14px + env(safe-area-inset-top,0px)) var(--pad) 14px;background:var(--bg);border-bottom:1px solid var(--line)}.dbar b{font:400 20px var(--serif)}
+.dbar button{background:none;border:1px solid var(--ink);color:var(--ink);padding:8px 20px;font:inherit;cursor:pointer;transition:.3s}.dbar button:hover{background:var(--ink);color:var(--bg)}
+.d{padding:clamp(56px,8vw,120px) var(--pad)}.d h1{font-size:clamp(48px,9vw,148px);grid-column:1/11}
+.d .lead{grid-column:1/7;margin-top:48px;font:300 clamp(22px,2.2vw,29px)/1.4 var(--serif)}.d .meta{grid-column:8/13;margin-top:48px;font-size:15px;align-self:end}
+.d .meta dl{margin:0;display:grid;grid-template-columns:max-content 1fr;gap:8px 24px;border-top:1px solid var(--ink);padding-top:14px}.d .meta dt{color:var(--mute)}.d .meta dd{margin:0}
+.ch{margin:clamp(80px,11vw,150px) 0 30px;display:flex;justify-content:space-between;align-items:baseline;gap:20px;border-bottom:1px solid var(--ink);padding-bottom:14px;flex-wrap:wrap;background:repeating-linear-gradient(90deg,var(--ink) 0 1px,transparent 1px 12px) bottom/100% 6px no-repeat}.ch h2{font-size:clamp(30px,3.6vw,52px)}.ch p{margin:0;color:var(--mute);max-width:46ch;font-size:15px}
+.g{display:grid;grid-template-columns:repeat(12,1fr);gap:clamp(12px,2vw,28px)}figure{margin:0}figcaption{font-size:14px;color:var(--mute);margin-top:10px}
+.s12{grid-column:span 12}.s7{grid-column:span 7}.s5{grid-column:span 5}.s6{grid-column:span 6}
+.sheet{background:#fff;border:0;padding:0;cursor:zoom-in;display:block;width:100%;overflow:hidden}.sheet img{width:100%;transition:transform .9s cubic-bezier(.2,.7,.1,1)}.sheet:hover img{transform:scale(1.02)}
+.p{grid-column:1/8;max-width:62ch;margin:0}
+#lb{position:fixed;inset:0;z-index:60;background:rgba(20,19,17,.97);display:none;flex-direction:column}#lb.open{display:flex}
+#lb .st{flex:1;overflow:auto;display:flex;align-items:center;justify-content:center;padding:56px 56px 8px}#lb img{max-width:100%;max-height:100%;object-fit:contain;cursor:zoom-in}
+#lb.z .st{display:block}#lb.z img{max-width:none;max-height:none;width:220%;cursor:zoom-out}
+#lb .bar{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:12px 20px calc(14px + env(safe-area-inset-bottom,0px));color:#e9e5db;font-size:14px}#lb button{background:none;border:1px solid #e9e5db;color:#e9e5db;padding:8px 16px;font:inherit;cursor:pointer}
+.cg{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:36px clamp(16px,2.5vw,36px)}.cg h3{font:500 15px var(--sans);color:var(--mute);letter-spacing:0;border-top:1px solid var(--ink);padding-top:14px;margin-bottom:10px}.cg p,.cg ul{margin:0;padding:0;list-style:none;font-size:16px;line-height:1.55}.cg li{padding:3px 0}
+.cr figcaption b{color:var(--ink);font-weight:500}
+@media(max-width:820px){.nav ul{display:none;position:fixed;top:calc(64px + env(safe-area-inset-top,0px));left:0;right:0;background:var(--bg);flex-direction:column;gap:0;padding:8px var(--pad) 20px;border-bottom:1px solid var(--line)}.nav ul.open{display:flex}.nav li a{display:block;padding:14px 0;font-size:22px}.burger{display:block}
+.hero h1{grid-column:1/13;font-size:clamp(52px,16vw,120px)}.fig{grid-column:2/12;grid-row:2;margin:36px 0 0}.hero .intro{grid-column:1/13;grid-row:3;margin-top:40px}
+.about .pic{grid-column:1/10;margin-bottom:32px}.about .txt{grid-column:1/13}
+.pj h2,.pj .facts,.pj .ov,.pj .sc,.pj .w2,.pj .w3{grid-column:1/13}.pj .facts{margin-top:32px}.pj .w1{aspect-ratio:4/3}.pj .w3{aspect-ratio:4/3;margin-top:0}
+.skills .row{grid-template-columns:1fr}.edu h2,.edu .ed{grid-column:1/13}.edu .ed{margin-top:32px}.contact .cp{opacity:.3}
+.d h1,.d .lead,.d .meta,.p{grid-column:1/13}.s7,.s5,.s6{grid-column:span 12}#lb .st{padding:56px 8px 8px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation-duration:.01s!important;animation-delay:0s!important;transition-duration:.01s!important}.rv{clip-path:none}.hero h1 i{transform:none}}
+</style></head><body>
+<header class="nav"><b>Suhana Firoj Attar</b>
+<button class="burger" aria-expanded="false" aria-controls="menu">Menu</button>
+<nav aria-label="Primary"><ul id="menu"><li><a href="#home">Home</a></li><li><a href="#about">About</a></li><li><a href="#works">Works</a></li><li><a href="#skills">Skills</a></li><li><a href="#contact">Contact</a></li></ul></nav></header>
+<main>
+<section id="home" class="hero grid">
+<h1><span><i>Suhana</i></span><span><i>Firoj Attar</i></span></h1>
+<div class="fig"><img data-k="me" alt="Portrait of Suhana Firoj Attar" id="par"></div>
+<div class="intro"><small>Architecture student · Diploma in Architecture<br>Deccan Institute of Technology, Kolhapur</small>
+<p>I study how space is organised, lit and finished. My work is drawn in AutoCAD and modelled in SketchUp, from plans and ceilings to rendered interiors.</p>
+<a class="cta" href="#works">Explore my work</a></div>
+<div class="scroll"><u></u>Scroll</div></section>
+
+<section id="about" class="about"><div class="grid">
+<div class="pic rv"><svg viewBox="0 0 400 533" role="img" aria-label="Drafting still life: set square, scale ruler, pencil and a dimension line"><defs><pattern id="gr" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" stroke-width=".4" stroke="#c9c6bd"/></pattern><pattern id="tk" width="10" height="14" patternUnits="userSpaceOnUse"><path d="M0 0V8" stroke-width=".8"/></pattern></defs><rect width="400" height="533" fill="url(#gr)" stroke="none"/><path class="f" d="M50 400L300 400L50 120Z"/><path d="M85 372L240 372L85 200Z"/><path d="M50 380A20 20 0 0 0 70 400"/><text x="78" y="392">90°</text><text x="215" y="390">45°</text><g transform="rotate(-14 200 470)"><rect class="f" x="40" y="448" width="330" height="34"/><rect x="40" y="448" width="330" height="14" fill="url(#tk)"/><text x="46" y="477">0</text><text x="342" y="477">1:100</text></g><g transform="rotate(-38 270 250)"><path class="f" d="M120 244H330L352 251L330 258H120Z"/><path d="M330 244L352 251L330 258"/><path class="a" d="M342 249.5L352 251L342 252.5"/><path d="M120 244V258"/></g><path d="M40 70H360M40 62V78M360 62V78"/><path class="a" d="M40 70L52 66V74ZM360 70L348 66V74Z"/><text x="140" y="58">16.30 m × 11.40 m</text></svg></div>
+<div class="txt"><h2>About</h2>
+<p class="big">Learning to read a room: its plan, its section, its materials and its light.</p>
+<p>I am a second-year Diploma in Architecture student. My coursework moves between technical drawing and spatial design, and I enjoy the point where a flat plan becomes a space you can imagine walking through.</p>
+<dl class="k"><dt>Name</dt><dd>Suhana Firoj Attar</dd><dt>Education</dt><dd>2nd Year Diploma in Architecture</dd><dt>Institute</dt><dd>Deccan Institute of Technology, Kolhapur</dd></dl></div></div></section>
+
+<section id="works" class="works dk"><div class="pj">
+<h2>Mughal-Inspired Restaurant</h2>
+<div class="facts"><dl><dt>Project type</dt><dd>Thematic Restaurant</dd><dt>Project area</dt><dd>5000 sq. ft.</dd></dl></div>
+<p class="ov">Designed a Mughal-inspired restaurant blending traditional royal heritage with contemporary interior elements. The design focuses on creating a luxurious dining experience through intricate architectural details, elegant materials, warm lighting, and a rich colour palette.</p>
+<div class="sc"><h3>Scope of work</h3><ul><li>Concept development and space planning</li><li>Furniture layout and zoning</li><li>Material and colour selection</li><li>Ceiling and lighting design</li><li>Kitchen planning</li><li>Working drawings and 3D visualisation</li></ul></div>
+<button class="tile w1 rv" data-open aria-label="Open project: Mughal-Inspired Restaurant"><img data-k="r8" alt="Rendered bar counter with arched back shelves and brass pendant lanterns"></button>
+<button class="tile w2 rv" data-open aria-label="Open project"><img data-k="r2" alt="Rendered evening dining hall with arched windows and floral wall panels"></button>
+<button class="tile w3 rv" data-open aria-label="Open project"><img data-k="r5" alt="Rendered entrance with carved columns and arches"></button>
+<div style="grid-column:1/13"><a class="open-p" href="#restaurant-interior" data-open>Open full project: renders and drawings</a></div>
+</div></section>
+
+<section id="skills" class="skills"><div class="grid"><h2 class="h2" style="grid-column:1/13">Software skills</h2>
+<div class="row"><div class="sk"><h3>AutoCAD</h3><p>2D drawing of plans, sections, ceiling and flooring layouts, and furniture details.</p>
+<svg viewBox="0 0 200 110" aria-hidden="true"><path d="M10 100H190M10 100V20M10 20H120M120 20V100M120 60H190M190 60V100"/><path d="M10 10H120M10 6V14M120 6V14" stroke-dasharray="3 3"/></svg></div>
+<div class="sk"><h3>SketchUp</h3><p>3D modelling of interior spaces, used as the base for the rendered views.</p>
+<svg viewBox="0 0 200 110" aria-hidden="true"><path d="M20 90L20 40L100 15L180 40L180 90L100 105Z M20 40L100 65L180 40 M100 65V105"/></svg></div></div></div></section>
+
+<section id="education" class="edu"><div class="grid"><h2 class="h2">Education</h2>
+<div class="ed"><h3>Deccan Institute of Technology, Kolhapur</h3><p>2nd Year Diploma in Architecture</p></div></div></section>
+
+<section id="contact" class="contact"><svg class="cp" viewBox="0 0 200 230" aria-hidden="true"><circle cx="100" cy="12" r="8"/><path d="M100 20V34M100 34L52 210L50 218L54 210M100 34L148 210L150 222L146 210"/><circle cx="100" cy="34" r="5"/><path d="M62 168H138"/><path d="M52 216A58 18 0 0 0 148 216" stroke-dasharray="4 4"/></svg><h2>Let’s talk about design.</h2>
+<p>I would be glad to hear from anyone interested in my work, whether to give feedback or to collaborate.</p></section>
+</main>
+<footer><span>Suhana Firoj Attar · Architecture Student</span><span>© 2026 Suhana Firoj Attar</span><button id="top">Back to top</button></footer>
+
+<div id="detail" role="dialog" aria-modal="true" aria-label="Project: Mughal-Inspired Restaurant">
+<div class="dbar"><b>Mughal-Inspired Restaurant</b><button id="close">Close</button></div>
+<article class="d">
+<div class="grid"><h1>Mughal-Inspired Restaurant</h1>
+<p class="lead">A thematic restaurant that blends traditional royal heritage with contemporary interior elements, built around intricate architectural details, elegant materials, warm lighting and a rich colour palette.</p>
+<div class="meta"><dl><dt>Concept name</dt><dd>The Mughal Era</dd><dt>Project type</dt><dd>Thematic Restaurant</dd><dt>Project area</dt><dd>5000 sq. ft.</dd><dt>Main dining</dt><dd>16.30 × 11.40 m</dd><dt>Tools</dt><dd>AutoCAD, SketchUp</dd><dt>Sheets</dt><dd>Suhana Attar, DID 2nd Year, IDS</dd></dl></div></div>
+
+<div class="ch"><h2>Scope of work</h2><p>Concept to working drawings and visualisation.</p></div>
+<div class="g"><ul class="s6" style="list-style:none;margin:0;padding:0"><li style="padding:12px 0;border-top:1px solid var(--line)">Concept development and space planning</li><li style="padding:12px 0;border-top:1px solid var(--line)">Furniture layout and zoning</li><li style="padding:12px 0;border-top:1px solid var(--line)">Material and colour selection</li></ul><ul class="s6" style="list-style:none;margin:0;padding:0"><li style="padding:12px 0;border-top:1px solid var(--line)">Ceiling and lighting design</li><li style="padding:12px 0;border-top:1px solid var(--line)">Kitchen planning</li><li style="padding:12px 0;border-top:1px solid var(--line)">Working drawings and 3D visualisation</li></ul></div>
+<div class="ch"><h2>Design language</h2></div>
+<div class="grid"><p class="p">The sheets specify a layered material palette: CNC laser-cut metal jali partitions in antique gold, a ceiling of 0.30 × 0.30 m brass-finish aluminium panels, arched hardwood windows, Mughal arch wall panels with floral wallpaper, tufted velvet seating and brass-legged chairs, on cream marble-look flooring with Persian rugs. A water feature with tiered basins sits in the centre of the main dining hall.</p></div>
+
+<div class="ch"><h2>Concept board: The Mughal Era</h2><p>A royal dining experience. Select the board to enlarge.</p></div>
+<div class="g"><figure class="s12"><button class="sheet" data-lb="board"><img data-k="board" alt="Concept and material board titled The Mughal Era, with concept, materials, furniture, lighting, wall and ceiling, decorative elements and ambiance"></button><figcaption>Concept and material board</figcaption></figure></div>
+<div class="cg" style="margin-top:56px">
+<div><h3>Concept</h3><p>Inspired by the grandeur of Mughal palaces, this restaurant blends royal elegance with modern comfort. Intricate arches, rich textures, warm lighting and luxurious materials create an unforgettable dining experience.</p></div>
+<div><h3>Materials and textures</h3><ul><li>White marble</li><li>Sandstone finish</li><li>Dark wood, teak / walnut</li><li>Brass and antique gold</li><li>Velvet upholstery</li></ul></div>
+<div><h3>Furniture</h3><ul><li>Upholstered dining chairs</li><li>Solid wood tables with marble tops</li><li>Comfortable booth seating</li><li>Carved wooden details</li></ul></div>
+<div><h3>Lighting</h3><ul><li>Warm ambient lighting</li><li>Brass pendant lamps</li><li>Lantern style pendants</li><li>Wall sconces and cove lights</li></ul></div>
+<div><h3>Wall and ceiling</h3><ul><li>Mughal arches and jaali details</li><li>Floral motifs and carved panels</li><li>Marble / stone cladding</li><li>Domed or vaulted ceilings</li><li>Decorative mouldings</li></ul></div>
+<div><h3>Decorative elements</h3><ul><li>Mughal arches and jaali patterns</li><li>Persian style rugs</li><li>Floral motifs and calligraphy artwork</li><li>Brass urns, planters and fountains</li></ul></div>
+<div><h3>Ambiance</h3><ul><li>Royal, warm and welcoming</li><li>Rich textures and layered lighting</li><li>Blend of tradition and modern luxury</li><li>Perfect for a memorable dining experience</li></ul></div></div>
+<div class="ch"><h2>From concept to render</h2><p>The board’s ideas, as they appear in the 3D views.</p></div>
+<div class="g cr">
+<figure class="s12"><button class="sheet" data-lb="r5"><img data-k="r5" alt="Rendered entrance with carved columns, arches and steps"></button><figcaption><b>Entrance.</b> Mughal arches and carved panels, as drawn in the render.</figcaption></figure>
+<figure class="s7"><button class="sheet" data-lb="r1"><img data-k="r1" alt="Main dining hall with central fountain and bar"></button><figcaption><b>Fountains and jaali.</b> Main dining hall with a central water feature and metal jaali screens.</figcaption></figure>
+<figure class="s5"><button class="sheet" data-lb="r8"><img data-k="r8" alt="Bar counter with lantern pendants" style="aspect-ratio:1/1;object-fit:cover;object-position:50% 40%"></button><figcaption><b>Lantern pendants.</b> Brass lanterns over the bar, with warm cove light below the counter.</figcaption></figure></div>
+<div class="ch"><h2>More rendered views</h2><p>Select any image to enlarge.</p></div>
+<div class="g"><figure class="s12"><button class="sheet" data-lb="r2"><img data-k="r2" alt="Evening dining hall with arched windows"></button><figcaption>Dining hall, evening</figcaption></figure><figure class="s7"><button class="sheet" data-lb="r3"><img data-k="r3" alt="Dining hall with jali partitions"></button><figcaption>Jali partitions and booth seating</figcaption></figure><figure class="s5"><button class="sheet" data-lb="r4"><img data-k="r4" alt="Reception counter and waiting area" style="aspect-ratio:1/1;object-fit:cover"></button><figcaption>Reception and waiting</figcaption></figure><figure class="s6"><button class="sheet" data-lb="r6"><img data-k="r6" alt="Dining hall, day view"></button><figcaption>Dining hall, day view</figcaption></figure><figure class="s6"><button class="sheet" data-lb="r7"><img data-k="r7" alt="Bar and window seating at night"></button><figcaption>Bar and window seating, evening</figcaption></figure></div>
+
+<div class="ch"><h2>Plans</h2><p>Room sizes, kitchen lines, service counters and furniture dimensions.</p></div>
+<div class="g"><figure class="s6"><button class="sheet" data-lb="d_pres"><img data-k="d_pres" alt="Presentation plan"></button><figcaption>Presentation plan</figcaption></figure>
+<figure class="s6"><button class="sheet" data-lb="d_spec"><img data-k="d_spec" alt="Measurement and specification plan"></button><figcaption>Measurement and specification plan</figcaption></figure></div>
+
+<div class="ch"><h2>Ceiling and flooring</h2><p>Light fittings, cassette air conditioning and finishes, tile by tile.</p></div>
+<div class="g"><figure class="s12"><button class="sheet" data-lb="d_ceil"><img data-k="d_ceil" alt="Ceiling layout"></button><figcaption>Ceiling layout</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_floor"><img data-k="d_floor" alt="Flooring layout"></button><figcaption>Flooring layout</figcaption></figure></div>
+
+<div class="ch"><h2>Sections and furniture detail</h2></div>
+<div class="g"><figure class="s6"><button class="sheet" data-lb="d_s1"><img data-k="d_s1" alt="Furniture sections C-C and D-D"></button><figcaption>Furniture sections, C-C and D-D</figcaption></figure>
+<figure class="s6"><button class="sheet" data-lb="d_s2"><img data-k="d_s2" alt="Furniture sections A-A and B-B"></button><figcaption>Furniture sections, A-A and B-B</figcaption></figure>
+<figure class="s12"><button class="sheet" data-lb="d_furn"><img data-k="d_furn" alt="Reception counter furniture detail"></button><figcaption>Furniture detail: fluted reception counter with 25 mm solid surface top</figcaption></figure></div>
+</article></div>
+
+<div id="lb" role="dialog" aria-modal="true" aria-label="Image viewer"><div class="st"><img id="lbi" alt=""></div>
+<div class="bar"><button id="lp">Previous</button><span id="lc"></span><button id="ln">Next</button><button id="lx">Close</button></div></div>
+
+<script>
+const IMG={"r1": "images/render-main-dining-fountain.jpg", "r2": "images/render-dining-hall-evening.jpg", "r3": "images/render-jali-booth-seating.jpg", "r4": "images/render-reception-waiting.jpg", "r5": "images/render-entrance-facade.jpg", "r6": "images/render-dining-hall-day.jpg", "r7": "images/render-bar-window-seating.jpg", "r8": "images/render-bar-counter.jpg", "d_pres": "images/drawing-presentation-plan.jpg", "d_spec": "images/drawing-measurement-specification-plan.jpg", "d_ceil": "images/drawing-ceiling-layout.jpg", "d_floor": "images/drawing-flooring-layout.jpg", "d_s1": "images/drawing-furniture-sections-cc-dd.jpg", "d_s2": "images/drawing-furniture-sections-aa-bb.jpg", "d_furn": "images/drawing-furniture-detail-reception-counter.jpg", "me": "images/portrait-suhana.jpg", "board": "images/concept-board-mughal-era.jpg"};const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const i=e.target;if(i.dataset.k&&!i.src)i.src=IMG[i.dataset.k];i.classList.add('in');io.unobserve(i)}}),{rootMargin:'300px'});
+$$('img[data-k],.rv').forEach(x=>io.observe(x));
+// load detail images when opened
+const det=$('#detail'),lazyD=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.src=IMG[e.target.dataset.k];lazyD.unobserve(e.target)}}),{root:det,rootMargin:'600px'});
+$$('#detail img[data-k]').forEach(i=>{io.unobserve(i);lazyD.observe(i)});
+// nav
+const bg=$('.burger'),mn=$('#menu');bg.onclick=()=>{const o=mn.classList.toggle('open');bg.setAttribute('aria-expanded',o)};
+mn.onclick=e=>{if(e.target.tagName=='A')mn.classList.remove('open')};
+const sec=$$('main section'),links=$$('#menu a');
+new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id==='education'?'skills':e.target.id;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'}).observe&&sec.forEach(s=>new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const id=e.target.id==='education'?'skills':e.target.id;links.forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+id))}}),{rootMargin:'-45% 0px -50% 0px'}).observe(s));
+// parallax
+const par=$('#par'),rm=matchMedia('(prefers-reduced-motion:reduce)').matches;
+if(!rm)addEventListener('scroll',()=>{if(scrollY<innerHeight)par.style.transform=`translateY(${-scrollY*.06}px)`},{passive:true});
+$('#top').onclick=()=>scrollTo({top:0});
+// project view
+function view(){const o=location.hash==='#restaurant-interior';det.classList.toggle('open',o);document.body.style.overflow=o?'hidden':'';if(o)det.scrollTop=0}
+$$('[data-open]').forEach(b=>b.onclick=e=>{e.preventDefault();location.hash='restaurant-interior'});
+$('#close').onclick=()=>{history.pushState(null,'',location.pathname+location.search+'#works');view();$('#works').scrollIntoView()};
+addEventListener('hashchange',view);view();
+// lightbox
+const lb=$('#lb'),lbi=$('#lbi'),keys=$$('#detail [data-lb]').map(b=>b.dataset.lb);let ci=0;
+function show(i){ci=(i+keys.length)%keys.length;lbi.src=IMG[keys[ci]];lbi.alt=$$('#detail [data-lb]')[ci].querySelector('img').alt;$('#lc').textContent=(ci+1)+' / '+keys.length;lb.classList.remove('z')}
+$$('#detail [data-lb]').forEach((b,i)=>b.onclick=()=>{show(i);lb.classList.add('open');$('#lx').focus()});
+$('#lp').onclick=()=>show(ci-1);$('#ln').onclick=()=>show(ci+1);$('#lx').onclick=()=>lb.classList.remove('open');
+lbi.onclick=()=>lb.classList.toggle('z');
+addEventListener('keydown',e=>{if(lb.classList.contains('open')){if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowRight')show(ci+1);if(e.key==='ArrowLeft')show(ci-1)}else if(e.key==='Escape'&&det.classList.contains('open'))$('#close').click()});
+</script></body></html>
