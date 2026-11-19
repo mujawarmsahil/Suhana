@@ -75,7 +75,7 @@ function Hero() {
           )}
           <div className="scene-note">
             <span className="scene-dot" aria-hidden="true" />
-            Stylized from the portrait reference — not a photoreal likeness
+            Portrait reference on a curved, interactive 3D surface
           </div>
         </div>
         <div className="hero-art-caption"><span>A portrait in sculptural form</span><span>Move or touch to explore</span></div>
@@ -119,10 +119,10 @@ function FeaturedProject() {
           <p className="eyebrow">02 — Selected work</p>
           <h2>One space.<br /><em>Many layers.</em></h2>
         </Reveal>
-        <p className="section-aside">
+        <Reveal as="p" className="section-aside" delay={100}>
           A thematic restaurant explored through its plan, materials, technical drawings, and
           rendered views.
-        </p>
+        </Reveal>
       </div>
 
       <Reveal className="feature-project">
@@ -148,10 +148,10 @@ function FeaturedProject() {
           <Link className="text-link" to={project.slug}>View case study <span aria-hidden="true">↗</span></Link>
         </div>
       </Reveal>
-      <div className="feature-foot">
+      <Reveal className="feature-foot" delay={120}>
         <span>Concept · The Mughal Era</span>
         <span>Plans · Visualisation · Working drawings</span>
-      </div>
+      </Reveal>
     </section>
   );
 }
@@ -164,10 +164,10 @@ function Process() {
           <p className="eyebrow">03 — Design process</p>
           <h2>From first idea<br />to <em>final view.</em></h2>
         </Reveal>
-        <p className="section-aside">
+        <Reveal as="p" className="section-aside" delay={100}>
           The project scope moves from concept and space planning through to technical
           documentation and 3D visualisation.
-        </p>
+        </Reveal>
       </div>
       <div className="process-line">
         {processStages.map((stage, index) => (
@@ -235,7 +235,9 @@ function Skills() {
           <p className="eyebrow">05 — Skills & tools</p>
           <h2>Thinking in<br /><em>space.</em></h2>
         </div>
-        <p className="section-aside">Tools and design areas represented in the project work.</p>
+        <Reveal as="p" className="section-aside" delay={100}>
+          Tools and design areas represented in the project work.
+        </Reveal>
       </Reveal>
       <div className="skills-columns">
         <Reveal className="skill-column">

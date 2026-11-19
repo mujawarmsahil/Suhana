@@ -7,9 +7,9 @@ import { restaurantProject as project } from "../data/projects.js";
 
 const RestaurantBlockout = lazy(() => import("../components/scene/RestaurantBlockout.jsx"));
 
-function ProjectImage({ asset, className = "", onOpen }) {
+function ProjectImage({ asset, className = "", onOpen, delay = 0 }) {
   return (
-    <figure className={`project-image ${className}`}>
+    <Reveal as="figure" delay={delay} className={`project-image ${className}`}>
       <button
         type="button"
         className="image-trigger"
@@ -23,19 +23,19 @@ function ProjectImage({ asset, className = "", onOpen }) {
         <span>{asset.kind === "drawing" ? "Technical drawing" : asset.kind === "board" ? "Concept study" : "3D visualisation"}</span>
         <span>{asset.title}</span>
       </figcaption>
-    </figure>
+    </Reveal>
   );
 }
 
 function ChapterHeading({ number, eyebrow, title, children }) {
   return (
-    <div className="chapter-heading">
+    <Reveal className="chapter-heading">
       <p className="eyebrow">{number} — {eyebrow}</p>
       <div>
         <h2>{title}</h2>
         {children && <p>{children}</p>}
       </div>
-    </div>
+    </Reveal>
   );
 }
 
@@ -200,18 +200,18 @@ export default function ProjectPage() {
     <main className="project-page">
       <section className="project-intro section-pad">
         <Link className="back-link" to="/#projects">← Selected work</Link>
-        <div className="project-title-row">
+        <Reveal className="project-title-row">
           <div>
             <p className="eyebrow">Signature project <span>·</span> Hospitality</p>
             <h1>{project.title}</h1>
           </div>
           <p className="project-intro-copy">{project.summary}</p>
-        </div>
-        <div className="project-facts">
+        </Reveal>
+        <Reveal className="project-facts" delay={100}>
           <div><span>Project type</span><strong>{project.category}</strong></div>
           <div><span>Project area</span><strong>{project.area}</strong></div>
           <div><span>Concept</span><strong>{project.conceptName}</strong></div>
-        </div>
+        </Reveal>
       </section>
 
       <section className="case-hero page-edge">
@@ -223,13 +223,13 @@ export default function ProjectPage() {
         <ChapterHeading number="01" eyebrow="Design intent" title="A royal reference, reinterpreted.">
           {project.conceptDescription}
         </ChapterHeading>
-        <div className="brief-details">
+        <Reveal className="brief-details">
           <p>{project.summary}</p>
           <dl>
             <div><dt>Main dining hall</dt><dd>16.30 × 11.40 m</dd></div>
             <div><dt>Software</dt><dd>AutoCAD · SketchUp</dd></div>
           </dl>
-        </div>
+        </Reveal>
       </section>
 
       <section className="case-concept section-pad">
@@ -240,11 +240,11 @@ export default function ProjectPage() {
       </section>
 
       <section className="case-materials section-pad">
-        <div className="materials-title">
+        <Reveal className="materials-title">
           <p className="eyebrow">03 — Material & colour direction</p>
           <h2>Warm surfaces.<br /><em>Layered detail.</em></h2>
-        </div>
-        <div className="materials-copy">
+        </Reveal>
+        <Reveal className="materials-copy" delay={100}>
           <p>
             The project sheets specify marble-look flooring, sandstone finishes, dark timber,
             brass tones, and velvet upholstery alongside carved panels and jali screens.
@@ -254,12 +254,14 @@ export default function ProjectPage() {
               <li key={material}><span>0{index + 1}</span>{material}</li>
             ))}
           </ul>
-        </div>
+        </Reveal>
       </section>
 
       <section className="case-plans section-pad">
         <ChapterHeading number="04" eyebrow="Space planning" title="Explore the plan." />
-        <PlanTour project={project} onOpen={openImage} />
+        <Reveal className="plan-tour-reveal">
+          <PlanTour project={project} onOpen={openImage} />
+        </Reveal>
       </section>
 
       <section className="case-renders section-pad">
@@ -273,6 +275,7 @@ export default function ProjectPage() {
               asset={asset}
               className={`render-position render-position-${index + 1}`}
               onOpen={openImage}
+              delay={(index % 3) * 90}
             />
           ))}
         </div>
@@ -283,15 +286,15 @@ export default function ProjectPage() {
           Ceiling, flooring, furniture sections, and reception counter drawings remain available at full size.
         </ChapterHeading>
         <div className="technical-subsection">
-          <div className="technical-label"><span>A</span><h3>Ceiling & flooring</h3></div>
+          <Reveal className="technical-label"><span>A</span><h3>Ceiling & flooring</h3></Reveal>
           <div className="case-image-grid layout-grid">
-            {project.layouts.map((asset) => (
-              <ProjectImage key={asset.title} asset={asset} className="span-twelve" onOpen={openImage} />
+            {project.layouts.map((asset, index) => (
+              <ProjectImage key={asset.title} asset={asset} className="span-twelve" onOpen={openImage} delay={(index % 2) * 90} />
             ))}
           </div>
         </div>
         <div className="technical-subsection">
-          <div className="technical-label"><span>B</span><h3>Furniture sections & detail</h3></div>
+          <Reveal className="technical-label"><span>B</span><h3>Furniture sections & detail</h3></Reveal>
           <div className="case-image-grid furniture-grid">
             {project.furnitureDrawings.map((asset, index) => (
               <ProjectImage
@@ -299,6 +302,7 @@ export default function ProjectPage() {
                 asset={asset}
                 className={index === 2 ? "span-twelve" : "span-six"}
                 onOpen={openImage}
+                delay={(index % 2) * 90}
               />
             ))}
           </div>
@@ -310,12 +314,14 @@ export default function ProjectPage() {
           <p className="eyebrow">07 — Scope of work</p>
           <h2>From plan<br />to <em>visualisation.</em></h2>
         </Reveal>
-        <ul className="scope-list">
+        <Reveal as="ul" className="scope-list" delay={100}>
           {project.scope.map((item, index) => (
             <li key={item}><span>0{index + 1}</span>{item}</li>
           ))}
-        </ul>
-        <Link className="text-link" to="/#projects">Back to selected work <span aria-hidden="true">↗</span></Link>
+        </Reveal>
+        <Reveal delay={180}>
+          <Link className="text-link" to="/#projects">Back to selected work <span aria-hidden="true">↗</span></Link>
+        </Reveal>
       </section>
 
       <ImageLightbox
