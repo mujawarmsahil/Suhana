@@ -9,7 +9,7 @@ export default class SceneErrorBoundary extends Component {
   }
 
   render() {
-    if (this.state.hasError) return <SceneFallback />;
+    if (this.state.hasError) return this.props.fallback ?? <SceneFallback />;
     return this.props.children;
   }
 }

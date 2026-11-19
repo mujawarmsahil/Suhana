@@ -81,6 +81,9 @@ h1 em, h2 em, h3 em { color: var(--olive); font-weight: 300; }
 .scene-window { position: relative; min-height: 420px; height: min(58vh, 590px); overflow: hidden; background: #d9d4ca; }
 .scene-window canvas, .scene-fallback { display: block; width: 100%; height: 100%; }
 .scene-window canvas { position: absolute; inset: 0; }
+.scene-window .portrait-canvas, .scene-window .portrait-fallback { position: absolute; inset: 0; width: 100%; height: 100%; }
+.portrait-canvas canvas { display: block; width: 100%; height: 100%; cursor: crosshair; touch-action: pan-y; }
+.portrait-fallback { display: block; }
 .scene-fallback { position: absolute; inset: 0; }
 .scene-note { position: absolute; right: 15px; bottom: 14px; left: 15px; display: flex; align-items: center; gap: 9px; color: #44433c; font-size: 10px; letter-spacing: .04em; }
 .scene-dot { width: 6px; height: 6px; flex: 0 0 auto; border-radius: 50%; background: var(--terracotta); }
@@ -239,6 +242,57 @@ h1 em, h2 em, h3 em { color: var(--olive); font-weight: 300; }
 .material-list li { display: flex; gap: 14px; padding: 11px 0; border-top: 1px solid rgba(243,239,231,.28); font-size: 13px; }
 .material-list li span { color: #c6b895; font-size: 10px; }
 .case-plans { background: var(--paper); }
+.plan-tour { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); align-items: start; gap: clamp(24px, 4vw, 58px); }
+.tour-plan-column, .tour-view-column { min-width: 0; }
+.plan-tour-mode { display: flex; gap: 5px; margin-bottom: 12px; }
+.plan-tour-mode button { padding: 8px 11px; border: 1px solid var(--line); background: transparent; color: var(--muted); cursor: pointer; font-size: 10px; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.plan-tour-mode button:hover, .plan-tour-mode button.is-active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.plan-tour-map { position: relative; margin: 0; overflow: hidden; background: #e8e5de; }
+.plan-tour-map > img { display: block; width: 100%; height: auto; }
+.restaurant-model-panel, .restaurant-blockout { min-width: 0; }
+.restaurant-blockout { position: relative; aspect-ratio: 1.2 / 1; min-height: 390px; overflow: hidden; background: #ded9cf; }
+.restaurant-blockout canvas { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: none; }
+.blockout-object-status { position: absolute; top: 12px; left: 12px; max-width: 46%; padding: 8px 10px; background: rgba(243, 239, 231, .94); color: var(--ink); font-size: 9px; pointer-events: none; }
+.blockout-object-picker { position: absolute; top: 12px; right: 12px; z-index: 1; max-width: 48%; color: var(--ink); font-size: 9px; }
+.blockout-object-picker summary { padding: 8px 10px; background: rgba(243, 239, 231, .96); cursor: pointer; list-style-position: inside; }
+.blockout-object-picker > div { display: grid; max-height: 205px; grid-template-columns: 1fr 1fr; gap: 4px; overflow: auto; padding: 6px; background: rgba(243, 239, 231, .97); }
+.blockout-object-picker button { padding: 6px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-size: 8px; text-align: left; }
+.blockout-object-picker button:hover, .blockout-object-picker button[aria-pressed="true"] { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.blockout-tools { position: absolute; right: 12px; bottom: 12px; left: 12px; display: flex; align-items: center; justify-content: space-between; gap: 10px; pointer-events: none; }
+.blockout-view-switch { display: flex; gap: 4px; padding: 4px; background: rgba(243, 239, 231, .94); pointer-events: auto; }
+.blockout-view-switch button { padding: 7px 9px; border: 0; background: transparent; color: var(--muted); cursor: pointer; font-size: 9px; }
+.blockout-view-switch button.is-active, .blockout-view-switch button:hover { background: var(--ink); color: var(--paper); }
+.blockout-tools > span { padding: 7px 9px; background: rgba(243, 239, 231, .94); color: var(--muted); font-size: 9px; }
+.model-preview-status, .model-preview-fallback { display: grid; min-height: 390px; place-items: center; background: #e7e2d8; }
+.model-preview-status { color: var(--muted); font: 300 20px var(--serif); }
+.model-preview-fallback { position: relative; overflow: hidden; }
+.model-preview-fallback img { width: 100%; height: 100%; max-height: 480px; object-fit: contain; }
+.model-preview-fallback > div { position: absolute; right: 12px; bottom: 12px; left: 12px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 12px; background: rgba(243, 239, 231, .96); }
+.model-preview-fallback p { margin: 0; color: var(--muted); font-size: 10px; }
+.model-preview-fallback button { border: 0; padding: 8px 10px; background: var(--ink); color: var(--paper); cursor: pointer; font-size: 10px; }
+.plan-tour-hotspot { position: absolute; display: inline-flex; align-items: center; gap: 7px; transform: translate(-50%, -50%); padding: 7px 10px 7px 7px; border: 1px solid rgba(243, 239, 231, .8); background: rgba(36, 35, 31, .93); color: var(--paper); cursor: pointer; font-size: 10px; white-space: nowrap; box-shadow: 0 3px 12px rgba(0, 0, 0, .18); transition: background .2s ease, transform .2s ease; }
+.plan-tour-hotspot:hover { transform: translate(-50%, -50%) scale(1.05); }
+.plan-tour-hotspot.is-active { background: var(--olive-dark); }
+.tour-hotspot-number { display: grid; width: 21px; height: 21px; flex: 0 0 auto; place-items: center; border: 1px solid rgba(243, 239, 231, .65); border-radius: 50%; font-size: 8px; }
+.plan-tour-open { position: absolute; top: 10px; right: 10px; display: flex; align-items: center; gap: 12px; padding: 8px 10px; border: 0; background: rgba(243, 239, 231, .95); color: var(--ink); cursor: pointer; font-size: 10px; }
+.plan-tour-open:hover { background: #fff; }
+.plan-tour-map-caption { display: flex; justify-content: space-between; gap: 14px; margin-top: 10px; color: var(--muted); font-size: 10px; }
+.plan-tour-map-caption span:first-child { letter-spacing: .1em; text-transform: uppercase; }
+.tour-zone-list { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 32px; }
+.tour-zone-button { display: inline-flex; align-items: center; gap: 9px; padding: 8px 11px; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; font-size: 11px; transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.tour-zone-button > span { color: var(--terracotta); font-size: 9px; }
+.tour-zone-button:hover, .tour-zone-button.is-active { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.tour-zone-button.is-active > span, .tour-zone-button:hover > span { color: #d3c7a6; }
+.tour-measurement-plan .image-trigger { background: #fff; }
+.tour-view-heading { display: flex; min-height: 64px; align-items: center; justify-content: space-between; gap: 16px; margin-bottom: 15px; }
+.tour-view-heading .eyebrow { margin-bottom: 4px; color: var(--olive-dark); }
+.tour-view-heading h3 { margin: 0; font-size: clamp(22px, 2.4vw, 34px); }
+.tour-view-controls { display: flex; align-items: center; gap: 10px; }
+.tour-view-controls button { display: grid; width: 34px; height: 34px; place-items: center; border: 1px solid var(--line); background: transparent; color: var(--ink); cursor: pointer; }
+.tour-view-controls button:hover { border-color: var(--ink); background: var(--ink); color: var(--paper); }
+.tour-view-controls span { color: var(--muted); font-size: 9px; font-variant-numeric: tabular-nums; }
+.tour-view-image .image-trigger img { aspect-ratio: 1.45 / 1; object-fit: cover; }
+.tour-view-note { margin: 10px 0 0; color: var(--muted); font-size: 10px; }
 .case-image-grid { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: clamp(28px, 5vw, 65px) 22px; }
 .case-image-grid .project-image { min-width: 0; grid-column: span 12; }
 .case-image-grid .span-seven { grid-column: span 7; }
@@ -340,6 +394,9 @@ h1 em, h2 em, h3 em { color: var(--olive); font-weight: 300; }
   .project-title-row h1 { max-width: 15ch; font-size: clamp(56px, 11vw, 94px); }
   .project-facts { flex-wrap: wrap; gap: 18px 34px; }
   .case-brief { grid-template-columns: 1fr; gap: 36px; }
+  .plan-tour { grid-template-columns: 1fr; gap: 42px; }
+  .restaurant-blockout { min-height: 430px; }
+  .tour-view-heading h3 { font-size: 27px; }
   .chapter-heading { grid-template-columns: 1fr; gap: 18px; }
   .chapter-heading .eyebrow { padding-top: 0; }
   .case-summary { grid-template-columns: 1fr; }
@@ -395,6 +452,30 @@ h1 em, h2 em, h3 em { color: var(--olive); font-weight: 300; }
   .case-hero-image .image-trigger img { min-height: 300px; aspect-ratio: 1.08 / 1; object-fit: cover; }
   .case-hero-stamp { right: 12px; bottom: 14px; font-size: 8px; }
   .chapter-heading h2 { font-size: 39px; }
+  .plan-tour-hotspot { width: 32px; height: 32px; justify-content: center; padding: 0; border-radius: 50%; }
+  .restaurant-blockout { min-height: 320px; aspect-ratio: 1.08 / 1; }
+  .model-preview-status, .model-preview-fallback { min-height: 320px; }
+  .blockout-tools { right: 7px; bottom: 7px; left: 7px; align-items: end; }
+  .blockout-view-switch { gap: 2px; padding: 3px; }
+  .blockout-view-switch button { padding: 7px 6px; font-size: 8px; }
+  .blockout-tools > span { max-width: 112px; padding: 6px; font-size: 8px; line-height: 1.3; }
+  .blockout-object-status { top: 7px; left: 7px; max-width: 42%; padding: 6px; font-size: 8px; line-height: 1.3; }
+  .blockout-object-picker { top: 7px; right: 7px; max-width: 48%; font-size: 8px; }
+  .blockout-object-picker summary { padding: 6px; }
+  .blockout-object-picker > div { max-height: 160px; grid-template-columns: 1fr; }
+  .blockout-object-picker button { font-size: 8px; }
+  .model-preview-fallback > div { align-items: start; flex-direction: column; }
+  .tour-hotspot-name { display: none; }
+  .tour-hotspot-number { width: 23px; height: 23px; border: 0; font-size: 9px; }
+  .plan-tour-open { top: 6px; right: 6px; gap: 7px; padding: 7px; font-size: 9px; }
+  .plan-tour-map-caption { font-size: 9px; }
+  .tour-zone-list { gap: 6px; margin-bottom: 25px; }
+  .tour-zone-button { gap: 6px; padding: 7px 8px; font-size: 10px; }
+  .tour-view-heading { align-items: end; }
+  .tour-view-heading h3 { max-width: 16ch; font-size: 25px; }
+  .tour-view-controls { gap: 6px; }
+  .tour-view-controls button { width: 31px; height: 31px; }
+  .tour-view-image .image-trigger img { aspect-ratio: 1.18 / 1; }
   .brief-details dl { flex-direction: column; gap: 15px; }
   .case-image-grid { gap: 34px 14px; }
   .case-image-grid .span-seven, .case-image-grid .span-five, .case-image-grid .span-six,

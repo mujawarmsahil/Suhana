@@ -51,6 +51,33 @@ const furnitureDrawings = [
   image(receptionCounterDetail, "Reception counter furniture detail", "Reception counter furniture detail drawing", "drawing"),
 ];
 
+const tourZones = [
+  {
+    id: "dining",
+    label: "Main dining",
+    position: { left: "39%", top: "40%" },
+    views: [renders[0], renders[1], renders[2], renders[5]],
+  },
+  {
+    id: "bar",
+    label: "Bar",
+    position: { left: "36%", top: "25%" },
+    views: [renders[6], renders[7]],
+  },
+  {
+    id: "reception",
+    label: "Reception",
+    position: { left: "23%", top: "62%" },
+    views: [renders[3]],
+  },
+  {
+    id: "entrance",
+    label: "Entrance",
+    position: { left: "29%", top: "72%" },
+    views: [renders[4]],
+  },
+];
+
 export const restaurantProject = {
   id: "mughal-inspired-restaurant",
   slug: "/projects/mughal-inspired-restaurant",
@@ -89,6 +116,7 @@ export const restaurantProject = {
   plans,
   layouts,
   furnitureDrawings,
+  tourZones,
   lightboxItems: [concept, ...renders, ...plans, ...layouts, ...furnitureDrawings],
   heroRender: mainDining,
 };

@@ -5,33 +5,38 @@ import { processStages, restaurantProject } from "../data/projects.js";
 import ImageLightbox from "../components/common/ImageLightbox.jsx";
 import Reveal from "../components/common/Reveal.jsx";
 import SceneErrorBoundary from "../components/scene/SceneErrorBoundary.jsx";
-import SceneFallback from "../components/scene/SceneFallback.jsx";
+import PortraitFallback from "../components/portrait/PortraitFallback.jsx";
 
-const ArchitectureScene = lazy(() => import("../components/scene/ArchitectureScene.jsx"));
+const InteractivePortrait = lazy(() => import("../components/portrait/InteractivePortrait.jsx"));
 
 function Hero() {
   const stage = useRef(null);
   const [sceneVisible, setSceneVisible] = useState(false);
+  const [sceneRequested, setSceneRequested] = useState(false);
   const [canUse3D, setCanUse3D] = useState(false);
+  const [reducedMotion, setReducedMotion] = useState(false);
 
   useEffect(() => {
-    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    setCanUse3D(!reduced && window.innerWidth > 760);
+    const preference = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setReducedMotion(preference.matches);
+    updatePreference();
+    setCanUse3D(true);
+    preference.addEventListener("change", updatePreference);
+    return () => preference.removeEventListener("change", updatePreference);
   }, []);
 
   useEffect(() => {
     if (!canUse3D || !stage.current) return undefined;
     if (!("IntersectionObserver" in window)) {
+      setSceneRequested(true);
       setSceneVisible(true);
       return undefined;
     }
 
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
-          setSceneVisible(true);
-          observer.disconnect();
-        }
+        setSceneVisible(entry.isIntersecting);
+        if (entry.isIntersecting) setSceneRequested(true);
       },
       { rootMargin: "200px" },
     );
@@ -55,25 +60,25 @@ function Hero() {
 
       <div className="hero-art">
         <div className="scene-meta">
-          <span>Spatial study</span>
-          <span>01 / 01</span>
+          <span>Portrait study</span>
+          <span>3D / 01</span>
         </div>
-        <div className="scene-window" ref={stage} role="img" aria-label="Conceptual architectural studio study">
-          {sceneVisible ? (
-            <SceneErrorBoundary>
-              <Suspense fallback={<SceneFallback />}>
-                <ArchitectureScene />
+        <div className="scene-window" ref={stage} aria-label="Interactive stylized 3D portrait">
+          {canUse3D && sceneRequested ? (
+            <SceneErrorBoundary fallback={<PortraitFallback />}>
+              <Suspense fallback={<PortraitFallback />}>
+                <InteractivePortrait active={sceneVisible} reducedMotion={reducedMotion} />
               </Suspense>
             </SceneErrorBoundary>
           ) : (
-            <SceneFallback />
+            <PortraitFallback />
           )}
           <div className="scene-note">
             <span className="scene-dot" aria-hidden="true" />
-            An independent conceptual study — not the restaurant project
+            Stylized from the portrait reference — not a photoreal likeness
           </div>
         </div>
-        <div className="hero-art-caption"><span>Volumes in quiet conversation</span><span>Move to explore</span></div>
+        <div className="hero-art-caption"><span>A portrait in sculptural form</span><span>Move or touch to explore</span></div>
       </div>
       <a className="scroll-cue" href="#about"><span />Scroll to discover</a>
       <span className="hero-index" aria-hidden="true">SFA — ID / 01</span>

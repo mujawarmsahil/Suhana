@@ -1,8 +1,11 @@
-import { useCallback, useState } from "react";
+import { lazy, Suspense, useCallback, useState } from "react";
 import { Link } from "react-router-dom";
 import ImageLightbox from "../components/common/ImageLightbox.jsx";
 import Reveal from "../components/common/Reveal.jsx";
+import SceneErrorBoundary from "../components/scene/SceneErrorBoundary.jsx";
 import { restaurantProject as project } from "../data/projects.js";
+
+const RestaurantBlockout = lazy(() => import("../components/scene/RestaurantBlockout.jsx"));
 
 function ProjectImage({ asset, className = "", onOpen }) {
   return (
@@ -31,6 +34,155 @@ function ChapterHeading({ number, eyebrow, title, children }) {
       <div>
         <h2>{title}</h2>
         {children && <p>{children}</p>}
+      </div>
+    </div>
+  );
+}
+
+function ModelPreviewFallback({ planImage, onReturnToPlan }) {
+  return (
+    <div className="model-preview-fallback">
+      <img src={planImage} alt="Measured restaurant presentation plan" />
+      <div>
+        <p>3D preview unavailable in this browser.</p>
+        <button type="button" onClick={onReturnToPlan}>Return to measured plan</button>
+      </div>
+    </div>
+  );
+}
+
+function PlanTour({ project, onOpen }) {
+  const [activeZoneId, setActiveZoneId] = useState(project.tourZones[0].id);
+  const [viewIndex, setViewIndex] = useState(0);
+  const [visualization, setVisualization] = useState("plan");
+  const activeZone = project.tourZones.find((zone) => zone.id === activeZoneId);
+  const activeView = activeZone.views[viewIndex];
+
+  const selectZone = (zoneId) => {
+    setActiveZoneId(zoneId);
+    setViewIndex(0);
+  };
+  const changeView = (step) => {
+    setViewIndex((current) => (current + step + activeZone.views.length) % activeZone.views.length);
+  };
+
+  return (
+    <div className="plan-tour">
+      <div className="tour-plan-column">
+        <div className="plan-tour-mode" role="group" aria-label="Choose a project view">
+          <button
+            type="button"
+            className={visualization === "plan" ? "is-active" : ""}
+            aria-pressed={visualization === "plan"}
+            onClick={() => setVisualization("plan")}
+          >
+            Measured plan
+          </button>
+          <button
+            type="button"
+            className={visualization === "model" ? "is-active" : ""}
+            aria-pressed={visualization === "model"}
+            onClick={() => setVisualization("model")}
+          >
+            3D blockout
+          </button>
+        </div>
+        {visualization === "plan" ? (
+          <figure className="plan-tour-map">
+            <img
+              src={project.plans[0].src}
+              alt="Presentation plan showing the restaurant layout"
+              loading="lazy"
+              decoding="async"
+            />
+            {project.tourZones.map((zone, index) => (
+              <button
+                key={zone.id}
+                type="button"
+                className={`plan-tour-hotspot${activeZoneId === zone.id ? " is-active" : ""}`}
+                style={{ left: zone.position.left, top: zone.position.top }}
+                onClick={() => selectZone(zone.id)}
+                aria-label={`Show ${zone.label} views`}
+                aria-pressed={activeZoneId === zone.id}
+              >
+                <span className="tour-hotspot-number">{String(index + 1).padStart(2, "0")}</span>
+                <span className="tour-hotspot-name">{zone.label}</span>
+              </button>
+            ))}
+            <button
+              className="plan-tour-open"
+              type="button"
+              onClick={() => onOpen(project.plans[0])}
+            >
+              View full plan <span aria-hidden="true">↗</span>
+            </button>
+          </figure>
+        ) : (
+          <div className="restaurant-model-panel">
+            <SceneErrorBoundary
+              fallback={(
+                <ModelPreviewFallback
+                  planImage={project.plans[0].src}
+                  onReturnToPlan={() => setVisualization("plan")}
+                />
+              )}
+            >
+              <Suspense fallback={<div className="model-preview-status">Preparing the interactive blockout…</div>}>
+                <RestaurantBlockout
+                  activeZoneId={activeZoneId}
+                  onSelectZone={selectZone}
+                  onReturnToPlan={() => setVisualization("plan")}
+                  planImage={project.plans[0].src}
+                />
+              </Suspense>
+            </SceneErrorBoundary>
+          </div>
+        )}
+        <div className="plan-tour-map-caption">
+          <span>{visualization === "plan" ? "Presentation plan" : "Approximate 3D blockout"}</span>
+          <span>{visualization === "plan" ? "Select a marked area to explore" : "Select an area below to link its render"}</span>
+        </div>
+        <nav className="tour-zone-list" aria-label="Choose an area on the plan">
+          {project.tourZones.map((zone, index) => (
+            <button
+              key={zone.id}
+              type="button"
+              className={`tour-zone-button${activeZoneId === zone.id ? " is-active" : ""}`}
+              onClick={() => selectZone(zone.id)}
+              aria-pressed={activeZoneId === zone.id}
+            >
+              <span>{String(index + 1).padStart(2, "0")}</span>{zone.label}
+            </button>
+          ))}
+        </nav>
+        <ProjectImage
+          asset={project.plans[1]}
+          className="tour-measurement-plan"
+          onOpen={onOpen}
+        />
+      </div>
+
+      <div className="tour-view-column">
+        <div className="tour-view-heading" aria-live="polite">
+          <div>
+            <p className="eyebrow">{activeZone.label}</p>
+            <h3>{activeView.title}</h3>
+          </div>
+          {activeZone.views.length > 1 && (
+            <div className="tour-view-controls" aria-label="Browse views">
+              <button type="button" onClick={() => changeView(-1)} aria-label="Previous view">←</button>
+              <span>{String(viewIndex + 1).padStart(2, "0")} / {String(activeZone.views.length).padStart(2, "0")}</span>
+              <button type="button" onClick={() => changeView(1)} aria-label="Next view">→</button>
+            </div>
+          )}
+        </div>
+        <ProjectImage
+          key={activeView.src}
+          asset={activeView}
+          className="tour-view-image"
+          onOpen={onOpen}
+        />
+        <p className="tour-view-note">Rendered view from the selected area</p>
       </div>
     </div>
   );
@@ -106,19 +258,8 @@ export default function ProjectPage() {
       </section>
 
       <section className="case-plans section-pad">
-        <ChapterHeading number="04" eyebrow="Space planning" title="The plan sets the rhythm.">
-          Presentation and measurement drawings document the restaurant layout and its dimensions.
-        </ChapterHeading>
-        <div className="case-image-grid plan-grid">
-          {project.plans.map((asset, index) => (
-            <ProjectImage
-              key={asset.title}
-              asset={asset}
-              className={index === 0 ? "span-seven" : "span-five"}
-              onOpen={openImage}
-            />
-          ))}
-        </div>
+        <ChapterHeading number="04" eyebrow="Space planning" title="Explore the plan." />
+        <PlanTour project={project} onOpen={openImage} />
       </section>
 
       <section className="case-renders section-pad">
