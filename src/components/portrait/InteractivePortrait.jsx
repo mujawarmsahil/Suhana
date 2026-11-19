@@ -27,7 +27,7 @@ export default function InteractivePortrait({ active, reducedMotion }) {
       onPointerEnter={() => setHovered(true)}
       onPointerLeave={() => setHovered(false)}
       onPointerCancel={() => setHovered(false)}
-      aria-label="Interactive 3D portrait shaped from the supplied photo"
+      aria-label="Interactive 3D portrait modeled from the supplied photo reference"
     >
       <Canvas
         camera={{ position: [0.18, 2.35, 7.4], fov: 36 }}
@@ -39,7 +39,7 @@ export default function InteractivePortrait({ active, reducedMotion }) {
         onCreated={({ gl }) => {
           gl.domElement.setAttribute(
             "aria-label",
-            "Interactive 3D portrait shaped from the supplied photo",
+            "Interactive 3D portrait modeled from the supplied photo reference",
           );
         }}
       >

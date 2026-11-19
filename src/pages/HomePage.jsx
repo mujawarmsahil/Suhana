@@ -75,7 +75,7 @@ function Hero() {
           )}
           <div className="scene-note">
             <span className="scene-dot" aria-hidden="true" />
-            Portrait reference on a curved, interactive 3D surface
+            A 3D portrait modeled from the supplied reference
           </div>
         </div>
         <div className="hero-art-caption"><span>A portrait in sculptural form</span><span>Move or touch to explore</span></div>
